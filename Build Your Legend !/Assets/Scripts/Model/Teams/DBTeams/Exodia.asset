@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30930f0a2050e348b6b8b49ea8f4d3f, type: 3}
   m_Name: Exodia
   m_EditorClassIdentifier: 
-  name: 
+  name: Exodia
   nat: 0
-  funds: 0
-  salaryFunds: 0
-  recruits: []
+  funds: 10000
+  salaryFunds: 10000
+  recruits:
+  - {fileID: 11400000, guid: 786ab484abc3cd34eb019fb3cb734f0b, type: 2}
+  - {fileID: 11400000, guid: 28705b3a4a4cddd4796669f659836b8a, type: 2}
+  - {fileID: 11400000, guid: 37a59373c0bc29b449006a0fade44c10, type: 2}
+  - {fileID: 11400000, guid: 905dd6061f83e754087e437612f3dc15, type: 2}
+  - {fileID: 11400000, guid: 8ca66d516c9940244b1af1de96d2b935, type: 2}
+  - {fileID: 11400000, guid: f7589acd285afc445a789c56b7bca80d, type: 2}
