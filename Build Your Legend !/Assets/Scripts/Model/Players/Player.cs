@@ -9,22 +9,11 @@ using UnityEngine;
  * Version : 0.1.0
  */
 
-[CreateAssetMenu(fileName = "New Player", menuName = "Player")]
-public class Player : ScriptableObject
+[CreateAssetMenu(fileName = "New Player", menuName = "Recruit/Player")]
+public class Player : Individual
 {
-    public new string name;
-
-    public int age;
-
-    public string inGameName;
-
-    public int salary;
-
-    public int monetaryValue;
 
     public Mood mood;
-
-    public Nationality nat;
 
     public Status s;
 
@@ -53,19 +42,12 @@ public class Player : ScriptableObject
     private int potential;
 
     public Player(string name,string ign, int age, int salary,int monetary,Mood m,Nationality n, Status s,PlayerRole p,int agression,int outplay,int vision,int objective,int self,
-        int exp,int comm,int farm,int pos,int cons)
+        int exp,int comm,int farm,int pos,int cons) : base(name,ign,age,salary,monetary,n)
     {
-        if(!name.Equals(null) && !ign.Equals(null) && age > 16 && age < 40 && salary > 1 && salary < 1000000000 && monetary > 1 && monetary < 1000000000 && !m.Equals(null)
-            && !n.Equals(null) && !s.Equals(null) && ProveCara(agression) && ProveCara(outplay) && ProveCara(vision) && ProveCara(objective) && ProveCara(self) 
+        if( !m.Equals(null) && !s.Equals(null) && ProveCara(agression) && ProveCara(outplay) && ProveCara(vision) && ProveCara(objective) && ProveCara(self) 
              && ProveCara(exp) && ProveCara(comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(null))
         {
-            this.name = name;
-            this.inGameName = ign;
-            this.age = age;
-            this.salary = salary;
-            this.monetaryValue = monetary;
             this.mood = m;
-            this.nat = n;
             this.role = p;
             this.s = s;
             this.agression = agression;
