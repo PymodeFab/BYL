@@ -38,6 +38,7 @@ public class Team : ScriptableObject
 
     /*
      * Method to get access to all players recruited in the team
+     * can return an empty list
      */
     public List<Player> GetPlayers()
     {
@@ -53,6 +54,7 @@ public class Team : ScriptableObject
     }
     /*
      * Method to get access to the coach recruited in the team
+     * Can return null
      */
     public Coach GetCoach()
     {
