@@ -39,10 +39,12 @@ public class Player : Individual
 
     [SerializeField] private int consistency;
 
+    
+
     private int potential;
 
-    public Player(string name,string ign, int age, int salary,int monetary,Mood m,Nationality n, Status s,PlayerRole p,int agression,int outplay,int vision,int objective,int self,
-        int exp,int comm,int farm,int pos,int cons) : base(name,ign,age,salary,monetary,n)
+    public Player(string name,string ign, int age, DateTime bd, int salary,int monetary,Mood m,Nationality n, Status s,PlayerRole p,int agression,int outplay,int vision,int objective,int self,
+        int exp,int comm,int farm,int pos,int cons) : base(name,ign,age,bd,salary,monetary,n)
     {
         if( !m.Equals(null) && !s.Equals(null) && ProveCara(agression) && ProveCara(outplay) && ProveCara(vision) && ProveCara(objective) && ProveCara(self) 
              && ProveCara(exp) && ProveCara(comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(null))
