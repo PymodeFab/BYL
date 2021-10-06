@@ -19,25 +19,25 @@ public class Player : Individual
 
     public PlayerRole role;
 
-    public int agression;
+    [SerializeField] private int agression;
 
-    public int outplay;
+    [SerializeField] private int outplay;
 
-    public int vision;
+    [SerializeField] private int vision;
 
-    public int objective_control;
+    [SerializeField] private int objective_control;
 
-    public int selfishness;
+    [SerializeField] private int selfishness;
 
-    public int experience;
+    [SerializeField] private int experience;
 
-    public int comm;
+    [SerializeField] private int comm;
 
-    public int farming;
+    [SerializeField] private int farming;
 
-    public int positioning;
+    [SerializeField] private int positioning;
 
-    public int consistency;
+    [SerializeField] private int consistency;
 
     private int potential;
 
@@ -82,23 +82,54 @@ public class Player : Individual
     {
         return potential;
     }
+
     /*
      * Method to determine the set potential of a player
      */
     private void SetPotential()
     {
-        /* int modif = 0;
+         int score = GetBaseScore();
          System.Random rnd = new System.Random();
-         int current = GetBaseScore();
-         if(age > 20)
+         int result = rnd.Next(1, 100);
+         if(age < 20)
          {
-             modif *= -1;
+            if(result < 75)
+            {
+                potential = 70 + rnd.Next(1, 9);
+            }else if(result < 95)
+            {
+                potential = 80 + rnd.Next(1, 9);
+            }
+            else
+            {
+                potential = 90 + rnd.Next(1, 9);
+            }
+            if(potential < score)
+            {
+                potential = score + rnd.Next(5, 20);
+            }
+            if(potential > 99)
+            {
+                potential = 99;
+            }
          }
          else
          {
+            potential = score - rnd.Next(1, 20);
+            if(potential < 1)
+            {
+                potential = 1;
+            }
+         }
 
-         }*/
-        potential = 99;
+    }
+
+    /*Method to refresh the potential of a player
+     * 
+     */
+    public void RefreshPotential()
+    {
+        SetPotential();
     }
     public int GetBaseScore()
     {
@@ -132,25 +163,7 @@ public class Player : Individual
      */
     public int GetCurrentScore()
     {
-        int score = GetBaseScore();
-        switch (mood)
-        {
-            case Mood.Horrendous:
-                score = (int)(score* 0.8);
-                break;
-            case Mood.Bad:
-                score = (int)(score * 0.9);
-                break;
-            case Mood.Normal:
-                score = (int)(score * 1);
-                break;
-            case Mood.Good:
-                score = (int)(score * 1.1);
-                break;
-            case Mood.Superb:
-                score = (int)(score * 1.2);
-                break;
-        }
+        int score = (int)(GetBaseScore() * CoeffMood());
         if(score > 99)
         {
             score = 99;
@@ -162,5 +175,222 @@ public class Player : Individual
 
     }
 
+    private double CoeffMood()
+    {
+        switch (mood)
+        {
+            case Mood.Horrendous: return 0.9;
+            case Mood.Bad: return 0.95;
+            case Mood.Normal: return 1;
+            case Mood.Good: return 1.05;
+            case Mood.Superb: return 1.1;
+        }
+        return 0;
+    }
 
+    /** Getters and setters of the private fields
+     * 
+     */
+    public int GetCurrentAgression()
+    {
+        return (int)(agression * CoeffMood());
+    }
+    public int GetCurrentVision()
+    {
+        return (int)(vision * CoeffMood());
+    }
+    public int GetCurrentOutplay()
+    {
+        return (int)(outplay * CoeffMood());
+    }
+    public int GetCurrentSelfishness()
+    {
+        return (int)(selfishness * CoeffMood());
+    }
+    public int GetCurrentObjectiveControl()
+    {
+        return (int)(objective_control * CoeffMood());
+    }
+    public int GetCurrentFarming()
+    {
+        return (int)(farming * CoeffMood());
+    }
+    public int GetCurrentPositioning()
+    {
+        return (int)(positioning * CoeffMood());
+    }
+    public int GetCurrentExperience()
+    {
+        return (int)(experience * CoeffMood());
+    }
+    public void TrainAgression(int mod)
+    {
+        if(mod > 0)
+        {
+            if(mod + agression <= potential)
+            {
+                agression += mod;
+            }
+        }
+        else
+        {
+            if(agression - mod >= potential)
+            {
+                agression -= mod;
+            }
+        }
+    }
+    public void TrainVision(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + vision <= potential)
+            {
+                vision += mod;
+            }
+        }
+        else
+        {
+            if (vision - mod >= potential)
+            {
+                vision -= mod;
+            }
+        }
+    }
+    public void TrainFarming(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + farming <= potential)
+            {
+                farming += mod;
+            }
+        }
+        else
+        {
+            if (farming - mod >= potential)
+            {
+                farming -= mod;
+            }
+        }
+    }
+    public void TrainObjectiveControl(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + objective_control <= potential)
+            {
+                objective_control += mod;
+            }
+        }
+        else
+        {
+            if (objective_control - mod >= potential)
+            {
+                objective_control -= mod;
+            }
+        }
+    }
+    public void TrainOutplay(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + outplay <= potential)
+            {
+                outplay += mod;
+            }
+        }
+        else
+        {
+            if (outplay - mod >= potential)
+            {
+                outplay -= mod;
+            }
+        }
+    }
+    public void TrainPositioning(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + positioning <= potential)
+            {
+                positioning += mod;
+            }
+        }
+        else
+        {
+            if (positioning - mod >= potential)
+            {
+                positioning -= mod;
+            }
+        }
+    }
+    public void TrainExperience(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + experience <= potential)
+            {
+                experience += mod;
+            }
+        }
+        else
+        {
+            if (experience - mod >= potential)
+            {
+                experience -= mod;
+            }
+        }
+    }
+    public void TrainComm(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + comm <= potential)
+            {
+                comm += mod;
+            }
+        }
+        else
+        {
+            if (comm - mod >= potential)
+            {
+                comm -= mod;
+            }
+        }
+    }
+    public void TrainSelfishness(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + selfishness <= potential)
+            {
+                selfishness += mod;
+            }
+        }
+        else
+        {
+            if (selfishness - mod >= potential)
+            {
+                selfishness -= mod;
+            }
+        }
+    }
+    public void TrainConsistency(int mod)
+    {
+        if (mod > 0)
+        {
+            if (mod + consistency <= potential)
+            {
+                consistency += mod;
+            }
+        }
+        else
+        {
+            if (consistency - mod >= potential)
+            {
+                consistency -= mod;
+            }
+        }
+    }
 }
