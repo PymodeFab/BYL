@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: New Player 1
+  m_Name: Fabien
   m_EditorClassIdentifier: 
-  name: 
-  age: 0
-  inGameName: 
-  salary: 0
-  monetaryValue: 0
+  name: Fabien DOMPEY
+  age: 24
+  inGameName: The Right Leg
+  salary: 20
+  monetaryValue: 100
   nat: 0
-  birthdayDate: 
-  mood: 0
+  birthdayDate: 26.03.1997
+  mood: 2
   s: 0
-  role: 0
-  agression: 0
-  outplay: 0
-  vision: 0
-  objective_control: 0
-  selfishness: 0
-  experience: 0
-  comm: 0
-  farming: 0
-  positioning: 0
-  consistency: 0
+  role: 4
+  agression: 60
+  outplay: 65
+  vision: 70
+  objective_control: 68
+  selfishness: 15
+  experience: 20
+  comm: 40
+  farming: 35
+  positioning: 30
+  consistency: 80

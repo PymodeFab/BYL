@@ -32,6 +32,7 @@ public abstract class Individual : ScriptableObject
             this.monetaryValue = monetary;
             this.age = age;
             this.birthday = bd;
+            birthdayDate = "";
         }
         else
         {
