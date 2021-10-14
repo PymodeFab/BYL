@@ -2,29 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+using System.Text.RegularExpressions;
 
 public abstract class Individual : ScriptableObject
 {
-    [SerializeField] private readonly string _name;
+    [SerializeField] protected  string _name;
 
-    private int _age;
+    [SerializeField] protected  Sprite _sprite;
 
-    [SerializeField] private readonly Sprite _sprite;
+    [SerializeField] protected string _inGameName;
 
-    [SerializeField] private string _inGameName;
+    [SerializeField] protected int _salary;
 
-    [SerializeField] private int _salary;
+    [SerializeField] protected int _monetaryValue;
 
-    [SerializeField] private int _monetaryValue;
+    [SerializeField] protected Nationality _nat;
 
-    [SerializeField] private Nationality _nat;
+    protected DateTime _birthday;
 
-    private DateTime _birthday;
-
-    [SerializeField] private readonly string _birthdayDate;
+    [SerializeField] protected  string _birthdayDate;
 
     public string BirthdayToString { get => _birthdayDate; }
 
@@ -35,8 +31,6 @@ public abstract class Individual : ScriptableObject
     public int Salary { get => _salary; set => _salary = value; }
 
     public int MonetaryValue { get => _monetaryValue; set => _monetaryValue = value; }
-
-    public int Age { get => _age; }
 
     public Sprite Sprite { get => _sprite; }
 
@@ -54,29 +48,30 @@ public abstract class Individual : ScriptableObject
             this._birthday = bd;
             _birthdayDate = "";
             _sprite = sp;
-            SetAge();
         }
         else
         {
             throw new System.ArgumentException("Illegal Arguments");
         }
     }
-#if UNITY_EDITOR
+
+    /*Really important method to call when using an edited player
+     */
     public void RefreshBirthday()
     {
-        if (_birthday.Equals(null) || _birthday.Equals(DateTime.MinValue))
-        {
-            string[] subs = _birthdayDate.Split('.');
+        Debug.Log("Called birthday");
+            string[] subs = Regex.Split(_birthdayDate, @"/");
             _birthday = new DateTime(Int32.Parse(subs[2]),Int32.Parse(subs[1]),Int32.Parse(subs[0]));
+        Debug.Log(_birthday.Year);
             
-        }
-        SetAge();
     }
-
-    public void SetAge()
+    public int CalculateAge(DateTime refe)
     {
-        TimeSpan t = DateTime.Now - _birthday;
-        _age = (int)t.Days / 365;
+        int age;
+        Debug.Log(_birthday.ToString());
+        age = refe.Year - _birthday.Year;
+        if (refe.Month < _birthday.Month || (refe.Month == _birthday.Month && refe.Day < _birthday.Day))
+            age--;
+        return age;
     }
-#endif
 }

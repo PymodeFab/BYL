@@ -8,15 +8,17 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        player.RefreshBirthday();
-        //player.RefreshPotential();
-       // Debug.Log(player.birthday.ToString());
-        //Debug.Log(player.name + " '' " + player.inGameName + " ''  Potential : " + player.GetPotential() + " Base Score : " + player.GetBaseScore() + " Current Score : " + player.GetCurrentScore());
+        Debug.Log(player.BirthdayToString);
+        //Debug.Log(player.GetCurrentScore());
+        Debug.Log(player.GetBaseScore());
+        Debug.Log(player.GetPotential());
+        Debug.Log(player.CalculateAge(System.DateTime.Now));
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        Debug.Log(player.CalculateAge(System.DateTime.Now));
     }
 }

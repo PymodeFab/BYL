@@ -2,9 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 /* Player class which represents the model of all players available in the game
  * Author : DOMPEY Fabien
@@ -124,24 +121,23 @@ public class Player : Individual
     private void SetPotential()
     {
          int score = GetBaseScore();
-         System.Random rnd = new System.Random();
-         int result = rnd.Next(1, 100);
-         if(Age < 20)
+         int result =_rnd.Next(1, 100);
+         if(CalculateAge(DateTime.Now) < 20)
          {
             if(result < 75)
             {
-                potential = 70 + rnd.Next(1, 9);
+                potential = 70 +_rnd.Next(1, 9);
             }else if(result < 95)
             {
-                potential = 80 + rnd.Next(1, 9);
+                potential = 80 +_rnd.Next(1, 9);
             }
             else
             {
-                potential = 90 + rnd.Next(1, 9);
+                potential = 90 +_rnd.Next(1, 9);
             }
             if(potential < score)
             {
-                potential = score + rnd.Next(5, 20);
+                potential = score +_rnd.Next(5, 20);
             }
             if(potential > 99)
             {
@@ -150,7 +146,7 @@ public class Player : Individual
          }
          else
          {
-            potential = score - rnd.Next(1, 20);
+            potential = score -_rnd.Next(1, 20);
             if(potential < 1)
             {
                 potential = 1;
@@ -160,15 +156,13 @@ public class Player : Individual
     }
 
     /*Method to refresh the potential of a player
-     * 
+     * Really important for the edited players
      */
-#if UNITY_EDITOR
     public void Initialize()
     {
-        SetPotential();
         _rnd = new System.Random();
+        SetPotential();
     }
-#endif
     public int GetBaseScore()
     {
         int results = 0;
