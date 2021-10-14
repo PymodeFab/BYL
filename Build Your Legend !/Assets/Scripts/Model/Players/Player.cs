@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 /* Player class which represents the model of all players available in the game
  * Author : DOMPEY Fabien
@@ -13,55 +16,85 @@ using UnityEngine;
 public class Player : Individual
 {
 
-    public Mood mood;
-
     public Status s;
 
     public PlayerRole role;
 
-    [SerializeField] private int agression;
+    [SerializeField] private PlayerStyle _playStyle;
 
-    [SerializeField] private int outplay;
+    [SerializeField] private int _agression;
 
-    [SerializeField] private int vision;
+    [SerializeField] private int _outplay;
 
-    [SerializeField] private int objective_control;
+    [SerializeField] private int _vision;
 
-    [SerializeField] private int selfishness;
+    [SerializeField] private int _objective_control;
 
-    [SerializeField] private int experience;
+    [SerializeField] private int _selfishness;
 
-    [SerializeField] private int comm;
+    [SerializeField] private int _experience;
 
-    [SerializeField] private int farming;
+    [SerializeField] private int _comm;
 
-    [SerializeField] private int positioning;
+    [SerializeField] private int _farming;
 
-    [SerializeField] private int consistency;
+    [SerializeField] private int _positioning;
 
-    
+    [SerializeField] private int _consistency;
+
+    /*
+     * Getters of the base score of each caracteristics
+     * 
+     */
+    public int BaseAgression { get => _agression;  }
+
+    public int BaseOutplay { get => _outplay; }
+
+    public int BaseVision { get => _vision; }
+
+    public int BaseObjectiveControl { get => _objective_control; }
+
+    public int BaseSelfishness { get => _selfishness; }
+
+    public int BaseExperience { get => _experience; }
+
+    public int BaseCommunication { get => _comm; }
+
+    public int BaseFarming { get => _farming; }
+
+    public int BasePositioning { get => _positioning; }
+
+    public int Consistency { get => _consistency; }
+
+    public PlayerStyle PlayStyle { get => _playStyle; set => _playStyle = value; }
+
+    private DiceRoll _roll;
+
+    private System.Random _rnd;
 
     private int potential;
 
-    public Player(string name,string ign, int age, DateTime bd, int salary,int monetary,Mood m,Nationality n, Status s,PlayerRole p,int agression,int outplay,int vision,int objective,int self,
-        int exp,int comm,int farm,int pos,int cons) : base(name,ign,age,bd,salary,monetary,n)
+    public Player(string name,string ign, DateTime bd, int salary,int monetary,Sprite sp,Nationality n,PlayerStyle ps, Status s,PlayerRole p,int _agression,int _outplay,int _vision,int objective,int self,
+        int exp,int _comm,int farm,int pos,int cons) : base(name,ign,bd,salary,monetary,n,sp)
     {
-        if( !m.Equals(null) && !s.Equals(null) && ProveCara(agression) && ProveCara(outplay) && ProveCara(vision) && ProveCara(objective) && ProveCara(self) 
-             && ProveCara(exp) && ProveCara(comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(null))
+        if(!s.Equals(null) && !ps.Equals(null) && ProveCara(_agression) && ProveCara(_outplay) && ProveCara(_vision) && ProveCara(objective) && ProveCara(self) 
+             && ProveCara(exp) && ProveCara(_comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(null))
         {
-            this.mood = m;
             this.role = p;
             this.s = s;
-            this.agression = agression;
-            this.outplay = outplay;
-            this.vision = vision;
-            this.objective_control = objective;
-            this.selfishness = self;
-            this.experience = exp;
-            this.comm = comm;
-            this.farming = farm;
-            this.positioning = pos;
-            this.consistency = cons;
+            this._agression = _agression;
+            this._outplay = _outplay;
+            this._vision = _vision;
+            this._objective_control = objective;
+            this._selfishness = self;
+            this._experience = exp;
+            this._comm = _comm;
+            this._farming = farm;
+            this._positioning = pos;
+            this._consistency = cons;
+            _playStyle = ps;
+            _roll = DiceRoll.NONE;
+            _rnd = new System.Random();
             SetPotential();
 
         }
@@ -93,7 +126,7 @@ public class Player : Individual
          int score = GetBaseScore();
          System.Random rnd = new System.Random();
          int result = rnd.Next(1, 100);
-         if(age < 20)
+         if(Age < 20)
          {
             if(result < 75)
             {
@@ -129,43 +162,46 @@ public class Player : Individual
     /*Method to refresh the potential of a player
      * 
      */
-    public void RefreshPotential()
+#if UNITY_EDITOR
+    public void Initialize()
     {
         SetPotential();
+        _rnd = new System.Random();
     }
+#endif
     public int GetBaseScore()
     {
         int results = 0;
         switch (role)
         {
             case PlayerRole.TopLaner:
-                results = (int)(3*agression+3*outplay+1*vision+objective_control+3*(100-selfishness)+2*experience+2*comm+2*farming+positioning) / 18;
+                results = (int)(3*_agression+3*_outplay+1*_vision+_objective_control+3*(100-_selfishness)+2*_experience+2*_comm+2*_farming+_positioning) / 18;
                 break;
             case PlayerRole.Jungler:
-                results = (int)(2 * agression + 2 * outplay + 3 * vision + 3 * objective_control + 2 * BetterSelfish() + experience + 3 * comm + farming + positioning) / 18;
+                results = (int)(2 * _agression + 2 * _outplay + 3 * _vision + 3 * _objective_control + 2 * BetterSelfish() + _experience + 3 * _comm + _farming + _positioning) / 18;
                 break;
             case PlayerRole.MidLaner:
-                results = (int)(3 * agression + 3 * outplay + 2 * vision + objective_control + 2 * BetterSelfish() + 2 * experience + comm + 2 * farming + 2 * positioning) / 18;
+                results = (int)(3 * _agression + 3 * _outplay + 2 * _vision + _objective_control + 2 * BetterSelfish() + 2 * _experience + _comm + 2 * _farming + 2 * _positioning) / 18;
                 break;
             case PlayerRole.BotLaner:
-                results = (int)(agression + 3 * outplay + vision + objective_control + 4 * selfishness + 2 * experience + comm + 3 * farming + 2 *positioning) / 18;
+                results = (int)(_agression + 3 * _outplay + _vision + _objective_control + 4 * _selfishness + 2 * _experience + _comm + 3 * _farming + 2 *_positioning) / 18;
                 break;
             case PlayerRole.Support:
-                results = (int)(2 * agression + 2 * outplay + 4 * vision + 2* objective_control + 3 * (100 - selfishness) + experience + 3 * comm + 0 * farming + positioning) / 18;
+                results = (int)(2 * _agression + 2 * _outplay + 4 * _vision + 2* _objective_control + 3 * (100 - _selfishness) + _experience + 3 * _comm + 0 * _farming + _positioning) / 18;
                 break;
 
         }
         return results;
     }
 
-    private int BetterSelfish() => selfishness > 100-selfishness ? selfishness : 100 -selfishness;
+    private int BetterSelfish() => _selfishness > 100-_selfishness ? _selfishness : 100 -_selfishness;
 
     /* Method to access the current Score of a player based on his score and his mood
      * 
      */
     public int GetCurrentScore()
     {
-        int score = (int)(GetBaseScore() * CoeffMood());
+        int score = (int)(GetBaseScore() + CoeffConsist());
         if(score > 99)
         {
             score = 99;
@@ -177,17 +213,66 @@ public class Player : Individual
 
     }
 
-    private double CoeffMood()
+    /* Roll a dice to see if the player is ready for the game ahead
+     * based on his consistency score
+     */
+    public void RollConsistencyGame()
     {
-        switch (mood)
+        int dice = _rnd.Next(1, 100);
+
+        if (dice < 6)
         {
-            case Mood.Horrendous: return 0.9;
-            case Mood.Bad: return 0.95;
-            case Mood.Normal: return 1;
-            case Mood.Good: return 1.05;
-            case Mood.Superb: return 1.1;
+            _roll = DiceRoll.CRITICAL_SUCCESS;
         }
-        return 0;
+        else if (dice > 95)
+        {
+            _roll = DiceRoll.CRITICAL_FAILURE;
+        }
+        else if (dice < Consistency)
+        {
+            _roll = DiceRoll.SUCCESS;
+        }
+        else
+        {
+            _roll = DiceRoll.FAILURE;
+        }
+    }
+
+    //Reset the roll for the next game
+    public void EndGame()
+    {
+        _roll = DiceRoll.NONE;
+    }
+
+    /* Determine the bonus or malus to add to each caracteristics asked by events in the game depending of its consistency and its roll
+     */
+    private int CoeffConsist()
+    {
+        int result = 0;
+        if(_roll.Equals(DiceRoll.CRITICAL_FAILURE) || _roll.Equals(DiceRoll.CRITICAL_SUCCESS))
+        {
+            if (_playStyle.Equals(PlayerStyle.Agressive))
+            {
+                result = _rnd.Next(5, 10);
+            }
+            else
+            {
+                result = _rnd.Next(1, 5);
+            }
+        }
+        else if (_roll.Equals(DiceRoll.FAILURE)||_roll.Equals(DiceRoll.SUCCESS))
+        {
+            if (_playStyle.Equals(PlayerStyle.Agressive))
+            {
+                result = _rnd.Next(1, 10);
+            }
+            else
+            {
+                result = _rnd.Next(1, 5);
+            }
+        }
+        result = (_roll.Equals(DiceRoll.CRITICAL_FAILURE) || _roll.Equals(DiceRoll.FAILURE)) ? result * -1 : result + 1;
+        return result;
     }
 
     /** Getters and setters of the private fields
@@ -195,50 +280,50 @@ public class Player : Individual
      */
     public int GetCurrentAgression()
     {
-        return (int)(agression * CoeffMood());
+        return (int)(_agression + CoeffConsist());
     }
     public int GetCurrentVision()
     {
-        return (int)(vision * CoeffMood());
+        return (int)(_vision + CoeffConsist());
     }
     public int GetCurrentOutplay()
     {
-        return (int)(outplay * CoeffMood());
+        return (int)(_outplay + CoeffConsist());
     }
     public int GetCurrentSelfishness()
     {
-        return (int)(selfishness * CoeffMood());
+        return (int)(_selfishness + CoeffConsist());
     }
     public int GetCurrentObjectiveControl()
     {
-        return (int)(objective_control * CoeffMood());
+        return (int)(_objective_control + CoeffConsist());
     }
     public int GetCurrentFarming()
     {
-        return (int)(farming * CoeffMood());
+        return (int)(_farming + CoeffConsist());
     }
     public int GetCurrentPositioning()
     {
-        return (int)(positioning * CoeffMood());
+        return (int)(_positioning + CoeffConsist());
     }
     public int GetCurrentExperience()
     {
-        return (int)(experience * CoeffMood());
+        return (int)(_experience + CoeffConsist());
     }
     public void TrainAgression(int mod)
     {
         if(mod > 0)
         {
-            if(mod + agression <= potential)
+            if(mod + _agression <= potential)
             {
-                agression += mod;
+                _agression += mod;
             }
         }
         else
         {
-            if(agression - mod >= potential)
+            if(_agression - mod >= potential)
             {
-                agression -= mod;
+                _agression -= mod;
             }
         }
     }
@@ -246,16 +331,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + vision <= potential)
+            if (mod + _vision <= potential)
             {
-                vision += mod;
+                _vision += mod;
             }
         }
         else
         {
-            if (vision - mod >= potential)
+            if (_vision - mod >= potential)
             {
-                vision -= mod;
+                _vision -= mod;
             }
         }
     }
@@ -263,16 +348,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + farming <= potential)
+            if (mod + _farming <= potential)
             {
-                farming += mod;
+                _farming += mod;
             }
         }
         else
         {
-            if (farming - mod >= potential)
+            if (_farming - mod >= potential)
             {
-                farming -= mod;
+                _farming -= mod;
             }
         }
     }
@@ -280,16 +365,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + objective_control <= potential)
+            if (mod + _objective_control <= potential)
             {
-                objective_control += mod;
+                _objective_control += mod;
             }
         }
         else
         {
-            if (objective_control - mod >= potential)
+            if (_objective_control - mod >= potential)
             {
-                objective_control -= mod;
+                _objective_control -= mod;
             }
         }
     }
@@ -297,16 +382,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + outplay <= potential)
+            if (mod + _outplay <= potential)
             {
-                outplay += mod;
+                _outplay += mod;
             }
         }
         else
         {
-            if (outplay - mod >= potential)
+            if (_outplay - mod >= potential)
             {
-                outplay -= mod;
+                _outplay -= mod;
             }
         }
     }
@@ -314,16 +399,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + positioning <= potential)
+            if (mod + _positioning <= potential)
             {
-                positioning += mod;
+                _positioning += mod;
             }
         }
         else
         {
-            if (positioning - mod >= potential)
+            if (_positioning - mod >= potential)
             {
-                positioning -= mod;
+                _positioning -= mod;
             }
         }
     }
@@ -331,16 +416,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + experience <= potential)
+            if (mod + _experience <= potential)
             {
-                experience += mod;
+                _experience += mod;
             }
         }
         else
         {
-            if (experience - mod >= potential)
+            if (_experience - mod >= potential)
             {
-                experience -= mod;
+                _experience -= mod;
             }
         }
     }
@@ -348,16 +433,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + comm <= potential)
+            if (mod + _comm <= potential)
             {
-                comm += mod;
+                _comm += mod;
             }
         }
         else
         {
-            if (comm - mod >= potential)
+            if (_comm - mod >= potential)
             {
-                comm -= mod;
+                _comm -= mod;
             }
         }
     }
@@ -365,16 +450,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + selfishness <= potential)
+            if (mod + _selfishness <= potential)
             {
-                selfishness += mod;
+                _selfishness += mod;
             }
         }
         else
         {
-            if (selfishness - mod >= potential)
+            if (_selfishness - mod >= potential)
             {
-                selfishness -= mod;
+                _selfishness -= mod;
             }
         }
     }
@@ -382,16 +467,16 @@ public class Player : Individual
     {
         if (mod > 0)
         {
-            if (mod + consistency <= potential)
+            if (mod + _consistency <= potential)
             {
-                consistency += mod;
+                _consistency += mod;
             }
         }
         else
         {
-            if (consistency - mod >= potential)
+            if (_consistency - mod >= potential)
             {
-                consistency -= mod;
+                _consistency -= mod;
             }
         }
     }

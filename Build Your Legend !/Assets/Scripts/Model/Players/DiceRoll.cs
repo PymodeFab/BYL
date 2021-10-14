@@ -1,0 +1,4 @@
+﻿public enum DiceRoll
+{
+    CRITICAL_FAILURE, FAILURE, SUCCESS, CRITICAL_SUCCESS,NONE
+}

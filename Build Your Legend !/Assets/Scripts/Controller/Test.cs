@@ -9,9 +9,9 @@ public class Test : MonoBehaviour
     void Awake()
     {
         player.RefreshBirthday();
-        player.RefreshPotential();
-        Debug.Log(player.birthday.ToString());
-        Debug.Log(player.name + " '' " + player.inGameName + " ''  Potential : " + player.GetPotential() + " Base Score : " + player.GetBaseScore() + " Current Score : " + player.GetCurrentScore());
+        //player.RefreshPotential();
+       // Debug.Log(player.birthday.ToString());
+        //Debug.Log(player.name + " '' " + player.inGameName + " ''  Potential : " + player.GetPotential() + " Base Score : " + player.GetBaseScore() + " Current Score : " + player.GetCurrentScore());
     }
 
     // Update is called once per frame

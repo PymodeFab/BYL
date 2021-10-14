@@ -2,50 +2,81 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public abstract class Individual : ScriptableObject
 {
-    public new string name;
+    [SerializeField] private readonly string _name;
 
-    public int age;
+    private int _age;
 
-    public string inGameName;
+    [SerializeField] private readonly Sprite _sprite;
 
-    public int salary;
+    [SerializeField] private string _inGameName;
 
-    public int monetaryValue;
+    [SerializeField] private int _salary;
 
-    public Nationality nat;
+    [SerializeField] private int _monetaryValue;
 
-    public DateTime birthday;
+    [SerializeField] private Nationality _nat;
 
-    [SerializeField] private string birthdayDate;
+    private DateTime _birthday;
 
-    public Individual(string name, string ign, int age,DateTime bd,int salary,int monetary, Nationality nat)
+    [SerializeField] private readonly string _birthdayDate;
+
+    public string BirthdayToString { get => _birthdayDate; }
+
+    public string Name { get => _name; }
+
+    public string IGN { get => _inGameName; set => _inGameName = value; }
+
+    public int Salary { get => _salary; set => _salary = value; }
+
+    public int MonetaryValue { get => _monetaryValue; set => _monetaryValue = value; }
+
+    public int Age { get => _age; }
+
+    public Sprite Sprite { get => _sprite; }
+
+    public Nationality Nationality { get => _nat; set => _nat = value; }
+
+    public Individual(string name, string ign,DateTime bd,int salary,int monetary, Nationality nat,Sprite sp)
     {
-        if(!name.Equals(null) && !ign.Equals(null) && age > 16 && age < 50 && !bd.Equals(null) && salary > 1 && salary < 100000000 && monetary > 1 && monetary < 100000000 && !nat.Equals(null))
+        if(!name.Equals(null) && !ign.Equals(null) && !bd.Equals(null) && salary > 1 && salary < 100000000 && monetary > 1 && monetary < 100000000 && !nat.Equals(null) && !sp.Equals(null))
         {
-            this.nat = nat;
-            this.name = name;
-            this.inGameName = ign;
-            this.salary = salary;
-            this.monetaryValue = monetary;
-            this.age = age;
-            this.birthday = bd;
-            birthdayDate = "";
+            this._nat = nat;
+            this._name = name;
+            this._inGameName = ign;
+            this._salary = salary;
+            this._monetaryValue = monetary;
+            this._birthday = bd;
+            _birthdayDate = "";
+            _sprite = sp;
+            SetAge();
         }
         else
         {
             throw new System.ArgumentException("Illegal Arguments");
         }
     }
-
+#if UNITY_EDITOR
     public void RefreshBirthday()
     {
-        if (birthday.Equals(null) || birthday.Equals(new DateTime(1,1,1)))
+        if (_birthday.Equals(null) || _birthday.Equals(DateTime.MinValue))
         {
-            string[] subs = birthdayDate.Split('.');
-            birthday = new DateTime(Int32.Parse(subs[2]),Int32.Parse(subs[1]),Int32.Parse(subs[0]));
+            string[] subs = _birthdayDate.Split('.');
+            _birthday = new DateTime(Int32.Parse(subs[2]),Int32.Parse(subs[1]),Int32.Parse(subs[0]));
+            
         }
+        SetAge();
     }
+
+    public void SetAge()
+    {
+        TimeSpan t = DateTime.Now - _birthday;
+        _age = (int)t.Days / 365;
+    }
+#endif
 }
