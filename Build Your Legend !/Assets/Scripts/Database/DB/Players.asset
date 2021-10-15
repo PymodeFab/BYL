@@ -13,23 +13,5 @@ MonoBehaviour:
   m_Name: Players
   m_EditorClassIdentifier: 
   data:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 6694baff7cd9f4f43b5e40f2eea27a39, type: 2}
+  - {fileID: 11400000, guid: de6b2924888ff064e9c23e9b474b8e15, type: 2}

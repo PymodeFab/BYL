@@ -15,8 +15,6 @@ public class Player : Individual
 
     public Status s;
 
-    public PlayerRole role;
-
     [SerializeField] private PlayerStyle _playStyle;
 
     [SerializeField] private int _agression;
@@ -72,12 +70,11 @@ public class Player : Individual
     private int potential;
 
     public Player(string name,string ign, DateTime bd, int salary,int monetary,Sprite sp,Nationality n,PlayerStyle ps, Status s,PlayerRole p,int _agression,int _outplay,int _vision,int objective,int self,
-        int exp,int _comm,int farm,int pos,int cons) : base(name,ign,bd,salary,monetary,n,sp)
+        int exp,int _comm,int farm,int pos,int cons) : base(name,ign,bd,salary,monetary,n,sp,p)
     {
         if(!s.Equals(null) && !ps.Equals(null) && ProveCara(_agression) && ProveCara(_outplay) && ProveCara(_vision) && ProveCara(objective) && ProveCara(self) 
-             && ProveCara(exp) && ProveCara(_comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(null))
+             && ProveCara(exp) && ProveCara(_comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(PlayerRole.Coach))
         {
-            this.role = p;
             this.s = s;
             this._agression = _agression;
             this._outplay = _outplay;
@@ -166,7 +163,7 @@ public class Player : Individual
     public int GetBaseScore()
     {
         int results = 0;
-        switch (role)
+        switch (Role)
         {
             case PlayerRole.TopLaner:
                 results = (int)(3*_agression+3*_outplay+1*_vision+_objective_control+3*(100-_selfishness)+2*_experience+2*_comm+2*_farming+_positioning) / 18;

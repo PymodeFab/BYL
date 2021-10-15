@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3948550e4699a4a46b01aee82ef3a692, type: 3}
+  m_Name: DictionaryFlags
+  m_EditorClassIdentifier: 
+  nationalities: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000
+  sprites:
+  - {fileID: 21300000, guid: b0e1da871cf073e468851d1cce02c717, type: 3}
+  - {fileID: 21300000, guid: 27ab56f762ee27045bb25d9227c58a23, type: 3}
+  - {fileID: 21300000, guid: 51537473e00a8624b9791a23836887b8, type: 3}
+  - {fileID: 21300000, guid: 6ef32ba88ba94b44c818b3ac7248c094, type: 3}
+  - {fileID: 21300000, guid: 10e277421fb83a444a0500c2d660aa0f, type: 3}
+  - {fileID: 21300000, guid: fe1c866464e8f3e418407e78b246d61a, type: 3}
+  - {fileID: 21300000, guid: b205a46853ac63b49a6966046b36cad8, type: 3}
+  - {fileID: 21300000, guid: d19b0a3cc2f316b409c9a69f383d06a0, type: 3}
+  - {fileID: 21300000, guid: 2b69b0b79a8cd4649b4f932cabd682d4, type: 3}
+  - {fileID: 21300000, guid: af467f4202745b84c99334c367e59003, type: 3}
+  - {fileID: 21300000, guid: 0a6169c6f14edf24cac96b9ee8a19fbd, type: 3}
+  - {fileID: 21300000, guid: 0e8e289ba975d894f8a8d4bccd92afa2, type: 3}
+  - {fileID: 21300000, guid: ccdf0b66a605bd747abd3c236d4172d3, type: 3}
+  - {fileID: 21300000, guid: a896df5e3b9dfad488370c635c54434f, type: 3}
+  - {fileID: 21300000, guid: 92667e53a7fd80c458deab6da3024bca, type: 3}
+  - {fileID: 21300000, guid: e4e6dfcbc6f074243b5956a154d6afe5, type: 3}
+  - {fileID: 21300000, guid: 50c6a219527dfcd4ea4543e94077d3f1, type: 3}
+  - {fileID: 21300000, guid: cbac3578701a52a4abf742fbf11a3d4d, type: 3}
+  - {fileID: 21300000, guid: ab1823fbad3418449995139ea5e46710, type: 3}
+  - {fileID: 21300000, guid: d2ffb86f8bdcb264882e05c16458228a, type: 3}

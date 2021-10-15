@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: Fabien
+  m_Name: Hugo
   m_EditorClassIdentifier: 
-  _name: Fabien Dompey
+  _name: Hugo
   _sprite: {fileID: 0}
-  _inGameName: The Right Leg
-  _salary: 350
-  _monetaryValue: 2
+  _inGameName: The Left Leg
+  _salary: 20
+  _monetaryValue: 100
   _nat: 0
-  role: 4
-  _birthdayDate: 26/03/1997
+  role: 3
+  _birthdayDate: 15/10/1996
   s: 0
-  _playStyle: 0
-  _agression: 75
-  _outplay: 60
-  _vision: 80
-  _objective_control: 70
+  _playStyle: 1
+  _agression: 45
+  _outplay: 35
+  _vision: 65
+  _objective_control: 60
   _selfishness: 5
   _experience: 10
   _comm: 20
-  _farming: 35
-  _positioning: 20
+  _farming: 40
+  _positioning: 25
   _consistency: 75

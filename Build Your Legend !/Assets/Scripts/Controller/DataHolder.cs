@@ -6,6 +6,10 @@ public class DataHolder : MonoBehaviour
 {
     public PlayersDatabase players;
 
+    public FlagsDictionary flags;
+
+    public RolesDictionary roles;
+
     private static DataHolder instance;
 
     // Start is called before the first frame update
@@ -40,5 +44,15 @@ public class DataHolder : MonoBehaviour
     public static Player GetPlayerByIGN(string IGN)
     {
         return instance.players.data.Find(x => x.IGN == IGN);
+    }
+
+    public static Sprite GetSpriteFromRole(PlayerRole p)
+    {
+        return instance.roles.GetSpriteFromRole(p);
+    }
+
+    public static Sprite GetSpriteFromNationality(Nationality n)
+    {
+        return instance.flags.GetSpriteFromNationality(n);
     }
 }

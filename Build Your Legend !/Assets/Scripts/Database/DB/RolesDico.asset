@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861db2d35e9b04344a3e8e6df014670e, type: 3}
+  m_Name: RolesDico
+  m_EditorClassIdentifier: 
+  roles: 000000000100000002000000030000000400000005000000
+  sprites:
+  - {fileID: 21300000, guid: 64965c15376da7848ab6e8d9a5a120a3, type: 3}
+  - {fileID: 21300000, guid: 8da73cf9192234243b3f24277186b0d3, type: 3}
+  - {fileID: 21300000, guid: 4a2c5852f1b38644b9a0a408689adc90, type: 3}
+  - {fileID: 21300000, guid: d5b572e0ab0ea3f4f93c0495453925b0, type: 3}
+  - {fileID: 21300000, guid: 7a8daedd0440308479a3453080cdde67, type: 3}
+  - {fileID: 21300000, guid: b0fedcf76e9698746996e8445010b577, type: 3}

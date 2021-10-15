@@ -1,4 +1,4 @@
 ﻿public enum PlayerRole
 {
-    TopLaner,Jungler,MidLaner,BotLaner,Support
+    TopLaner,Jungler,MidLaner,BotLaner,Support,Coach
 }
