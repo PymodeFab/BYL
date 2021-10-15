@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fabien
   m_EditorClassIdentifier: 
   _name: Fabien Dompey
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 284fa3bb479c6ee46aac853261574cca, type: 3}
   _inGameName: The Right Leg
   _salary: 350
   _monetaryValue: 2

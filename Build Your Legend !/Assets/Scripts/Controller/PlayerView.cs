@@ -19,7 +19,19 @@ public Image _role;
     // Start is called before the first frame update
     void Start()
     {
-       i =  DataHolder.GetRandomPlayer();
+        LookAtRandomPlayer();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void LookAtRandomPlayer()
+    {
+        i = DataHolder.GetRandomPlayer();
         _name.text = i.Name;
         _bd.text = i.BirthdayToString;
         _ign.text = i.IGN;
@@ -29,12 +41,5 @@ public Image _role;
         _flag.sprite = DataHolder.GetSpriteFromNationality(i.Nationality);
         _role.sprite = DataHolder.GetSpriteFromRole(i.Role);
 
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
