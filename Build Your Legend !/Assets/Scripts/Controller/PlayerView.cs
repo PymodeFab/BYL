@@ -20,6 +20,7 @@ public class PlayerView : MonoBehaviour
 
     private Player i;
     public Text _score;
+    public Text playerSearch;
 
     /* Stats view
      */
@@ -84,10 +85,18 @@ public class PlayerView : MonoBehaviour
 
     }
 
-    public void ViewSelectPlayer(Player p)
+    public void ViewSelectPlayer()
     {
-        i = p;
-        UpdateGraphics();
+        i = DataHolder.GetPlayerByIGN(playerSearch.text);
+        if(i != null)
+        {
+            UpdateGraphics();
+        }
+        else
+        {
+            ErrorBoxView.Show();
+        }
+        
     }
 
     private void UpdateGraphics()
