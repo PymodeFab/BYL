@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
+  m_Name: Larssen
+  m_EditorClassIdentifier: 
+  _name: Emil Larsson
+  _sprite: {fileID: 21300000, guid: 2a1966b115082834f9f959c9dca304c4, type: 3}
+  _inGameName: Larssen
+  _salary: 400000
+  _monetaryValue: 700000
+  _nat: 9
+  role: 2
+  _birthdayDate: 30/03/2000
+  s: 3
+  _playStyle: 1
+  _agression: 68
+  _outplay: 83
+  _vision: 68
+  _objective_control: 66
+  _selfishness: 85
+  _experience: 71
+  _comm: 70
+  _farming: 92
+  _positioning: 88
+  _consistency: 80

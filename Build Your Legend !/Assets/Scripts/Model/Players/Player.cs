@@ -166,19 +166,19 @@ public class Player : Individual
         switch (Role)
         {
             case PlayerRole.TopLaner:
-                results = (int)(3*_agression+3*_outplay+1*_vision+_objective_control+3*(100-_selfishness)+2*_experience+2*_comm+2*_farming+_positioning) / 18;
+                results = (int)(3*_agression+3*_outplay+1*_vision+1*_objective_control+3*(100-_selfishness)+2*_experience+2*_comm+2*_farming+1*_positioning+ 3 *_consistency) / 21;
                 break;
             case PlayerRole.Jungler:
-                results = (int)(2 * _agression + 2 * _outplay + 3 * _vision + 3 * _objective_control + 2 * BetterSelfish() + _experience + 3 * _comm + _farming + _positioning) / 18;
+                results = (int)(2 * _agression + 2 * _outplay + 3 * _vision + 3 * _objective_control + 2 * BetterSelfish() + 1*_experience + 3 * _comm + 1*_farming + 1*_positioning+ 3 *_consistency) / 21;
                 break;
             case PlayerRole.MidLaner:
-                results = (int)(3 * _agression + 3 * _outplay + 2 * _vision + _objective_control + 2 * BetterSelfish() + 2 * _experience + _comm + 2 * _farming + 2 * _positioning) / 18;
+                results = (int)(3 * _agression + 3 * _outplay + 2 * _vision + 1*_objective_control + 2 * BetterSelfish() + 2 * _experience + 1*_comm + 2 * _farming + 2 * _positioning + 3 *_consistency) / 21;
                 break;
             case PlayerRole.BotLaner:
-                results = (int)(_agression + 3 * _outplay + _vision + _objective_control + 4 * _selfishness + 2 * _experience + _comm + 3 * _farming + 2 *_positioning) / 18;
+                results = (int)(1*_agression + 3 * _outplay + 1*_vision + 1*_objective_control + 3 * _selfishness + 2 * _experience + 1*_comm + 3 * _farming + 3 *_positioning + 3 *_consistency) / 21;
                 break;
             case PlayerRole.Support:
-                results = (int)(2 * _agression + 2 * _outplay + 4 * _vision + 2* _objective_control + 3 * (100 - _selfishness) + _experience + 3 * _comm + 0 * _farming + _positioning) / 18;
+                results = (int)(2 * _agression + 2 * _outplay + 4 * _vision + 2* _objective_control + 3 * (100 - _selfishness) + 1*_experience + 3 * _comm + 0 * _farming + 1*_positioning+ 3 *_consistency) / 21;
                 break;
 
         }
