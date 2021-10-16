@@ -17,17 +17,17 @@ MonoBehaviour:
   _inGameName: Larssen
   _salary: 400000
   _monetaryValue: 700000
-  _nat: 9
+  _nat: 8
   role: 2
   _birthdayDate: 30/03/2000
   s: 3
   _playStyle: 1
   _agression: 68
   _outplay: 83
-  _vision: 68
-  _objective_control: 66
-  _selfishness: 85
-  _experience: 71
+  _vision: 70
+  _objective_control: 68
+  _selfishness: 90
+  _experience: 73
   _comm: 70
   _farming: 92
   _positioning: 88

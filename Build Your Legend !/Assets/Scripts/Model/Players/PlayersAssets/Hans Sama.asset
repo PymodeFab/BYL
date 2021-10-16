@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hans Sama
   m_EditorClassIdentifier: 
   _name: Steven Liv
-  _sprite: {fileID: 21300000, guid: d54dc455faa22a5449dceac211aaca8c, type: 3}
+  _sprite: {fileID: 21300000, guid: 25245bdd7faa31b439933ea5551f3dfc, type: 3}
   _inGameName: Hans Sama
   _salary: 450000
   _monetaryValue: 1400000
@@ -24,11 +24,11 @@ MonoBehaviour:
   _playStyle: 0
   _agression: 89
   _outplay: 92
-  _vision: 68
+  _vision: 70
   _objective_control: 72
-  _selfishness: 82
-  _experience: 77
+  _selfishness: 84
+  _experience: 80
   _comm: 76
-  _farming: 88
+  _farming: 90
   _positioning: 90
   _consistency: 86

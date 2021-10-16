@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
   m_Name: Trymbi
   m_EditorClassIdentifier: 
-  _name: 
-  _sprite: {fileID: 0}
-  _inGameName: 
-  _salary: 0
-  _monetaryValue: 0
-  _nat: 0
-  role: 0
-  _birthdayDate: 
+  _name: Adrian Trybus
+  _sprite: {fileID: 21300000, guid: 8cfac679120613a4d8bb6009bbefbd0b, type: 3}
+  _inGameName: Trymbi
+  _salary: 150000
+  _monetaryValue: 450000
+  _nat: 21
+  role: 4
+  _birthdayDate: 20/10/2000
   s: 0
   _playStyle: 0
-  _agression: 0
-  _outplay: 0
-  _vision: 0
-  _objective_control: 0
-  _selfishness: 0
-  _experience: 0
-  _comm: 0
-  _farming: 0
-  _positioning: 0
-  _consistency: 0
+  _agression: 87
+  _outplay: 83
+  _vision: 82
+  _objective_control: 82
+  _selfishness: 30
+  _experience: 64
+  _comm: 82
+  _farming: 65
+  _positioning: 69
+  _consistency: 78
