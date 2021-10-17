@@ -179,7 +179,7 @@ public class Player : Individual
                 results = (int)(1*_agression + 3 * _outplay + 1*_vision + 1*_objective_control + 3 * _selfishness + 2 * _experience + 1*_comm + 3 * _farming + 3 *_positioning + 3 *_consistency) / 21;
                 break;
             case PlayerRole.Support:
-                results = (int)(2 * _agression + 2 * _outplay + 4 * _vision + 2* _objective_control  + 3*(100-_selfishness) + 1*_experience + 3 * _comm + 0 * _farming + 1*_positioning+ 3 *_consistency) / 18;
+                results = (int)(2 * _agression + 2 * _outplay + 4 * _vision + 2* _objective_control  + 3*(100-_selfishness) + 1*_experience + 3 * _comm + 0 * _farming + 1*_positioning+ 3 *_consistency) / 21;
                 break;
 
         }

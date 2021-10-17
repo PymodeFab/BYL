@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Players
   m_EditorClassIdentifier: 
   data:
-  - {fileID: 11400000, guid: 8cbc29383a95ae54c91b04a52e10ba1e, type: 2}
-  - {fileID: 11400000, guid: 8f25e803f23989846932a0583bb9f050, type: 2}
-  - {fileID: 11400000, guid: c47e2658bfb4c584285e5ed578381cc0, type: 2}
-  - {fileID: 11400000, guid: 50eb0659e8668594692880106a23df1e, type: 2}
-  - {fileID: 11400000, guid: 3d61866455c903348a2bcbb051bb354e, type: 2}
+  - {fileID: 11400000, guid: afa7299208e9f23468a33edf71371c08, type: 2}
+  - {fileID: 11400000, guid: 6d9bead84e857bf469b45dcd22e175eb, type: 2}
+  - {fileID: 11400000, guid: 45d190164acb8a340b9d65f077c948ce, type: 2}
+  - {fileID: 11400000, guid: a9de2b1d3873176408fcc39e538894e8, type: 2}
   - {fileID: 11400000, guid: a583354a1a313534d93d26d869f8ec30, type: 2}

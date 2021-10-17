@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
   m_Name: Bwipo
   m_EditorClassIdentifier: 
-  _name: 
-  _sprite: {fileID: 0}
-  _inGameName: 
-  _salary: 0
-  _monetaryValue: 0
-  _nat: 0
-  role: 0
-  _birthdayDate: 
-  s: 0
+  _name: Gabriel Rau
+  _sprite: {fileID: 21300000, guid: 22b2c6a2474c30944aa2dd308093819b, type: 3}
+  _inGameName: Bwipo
+  _salary: 550000
+  _monetaryValue: 1000000
+  _nat: 4
+  role: 1
+  _birthdayDate: 24/30/1998
+  s: 4
   _playStyle: 0
-  _agression: 0
-  _outplay: 0
-  _vision: 0
-  _objective_control: 0
-  _selfishness: 0
-  _experience: 0
-  _comm: 0
-  _farming: 0
-  _positioning: 0
-  _consistency: 0
+  _agression: 94
+  _outplay: 87
+  _vision: 86
+  _objective_control: 83
+  _selfishness: 85
+  _experience: 81
+  _comm: 86
+  _farming: 80
+  _positioning: 79
+  _consistency: 76
