@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
+  m_Name: Chovy
+  m_EditorClassIdentifier: 
+  _name: Jeong Ji-hoon
+  _sprite: {fileID: 21300000, guid: 5a2bfd84a2523304f959ac852850aca4, type: 3}
+  _inGameName: Chovy
+  _salary: 1200000
+  _monetaryValue: 10000000
+  _nat: 2
+  role: 2
+  _birthdayDate: 15/11/2001
+  s: 5
+  _playStyle: 0
+  _agression: 93
+  _outplay: 97
+  _vision: 80
+  _objective_control: 80
+  _selfishness: 95
+  _experience: 76
+  _comm: 81
+  _farming: 98
+  _positioning: 95
+  _consistency: 94
