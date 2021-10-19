@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: Chovy
+  m_Name: Caps
   m_EditorClassIdentifier: 
-  _name: Jeong Ji-hoon
-  _sprite: {fileID: 21300000, guid: 5a2bfd84a2523304f959ac852850aca4, type: 3}
-  _inGameName: Chovy
-  _salary: 1200000
-  _monetaryValue: 10000000
-  _nat: 2
+  _name: Rasmus Winther
+  _sprite: {fileID: 21300000, guid: 4a6276b01e3c83d48a10f27936b7acff, type: 3}
+  _inGameName: Caps
+  _salary: 1500000
+  _monetaryValue: 8000000
+  _nat: 10
   role: 2
-  _birthdayDate: 15/11/2001
+  _birthdayDate: 17/11/1999
   s: 5
   _playStyle: 0
-  _agression: 94
-  _outplay: 97
-  _vision: 84
+  _agression: 95
+  _outplay: 96
+  _vision: 82
   _objective_control: 80
-  _selfishness: 95
-  _experience: 76
-  _comm: 81
-  _farming: 98
-  _positioning: 95
-  _consistency: 94
+  _selfishness: 93
+  _experience: 86
+  _comm: 80
+  _farming: 90
+  _positioning: 94
+  _consistency: 81
