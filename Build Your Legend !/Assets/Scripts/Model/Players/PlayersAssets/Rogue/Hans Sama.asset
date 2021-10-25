@@ -26,7 +26,6 @@ MonoBehaviour:
   _outplay: 92
   _vision: 70
   _objective_control: 72
-  _selfishness: 84
   _experience: 80
   _comm: 76
   _farming: 90
