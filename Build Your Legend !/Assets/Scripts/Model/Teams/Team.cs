@@ -12,26 +12,31 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Team",menuName ="Team")]
 public class Team : ScriptableObject
 {
-    public new string name;
+    [SerializeField] private string _name;
 
-    public Nationality nat;
+    [SerializeField] private Nationality _nat;
 
-    public int funds;
+    [SerializeField] private int _funds;
 
-    public int salaryFunds;
+    [SerializeField] private int _salaryFunds;
 
     [SerializeField]private List<Individual> recruits;
 
     private List<Individual> activeTeam;
 
+    public string Name { get => _name; set => _name = value; }
+    public Nationality Nat { get => _nat; set => _nat = value; }
+    public int Funds { get => _funds; set => _funds = value; }
+    public int SalaryFunds { get => _salaryFunds; set => _salaryFunds = value; }
+
     public Team(string name,Nationality nat, int funds, int salaryFunds)
     {
         if(!name.Equals(null) && !nat.Equals(null) && funds > 1 && salaryFunds > 1)
         {
-            this.name = name;
-            this.nat = nat;
-            this.funds = funds;
-            this.salaryFunds = salaryFunds;
+            this._name = name;
+            this._nat = nat;
+            this._funds = funds;
+            this._salaryFunds = salaryFunds;
             recruits = new List<Individual>();
             activeTeam = new List<Individual>();
         }
@@ -92,5 +97,18 @@ public class Team : ScriptableObject
             }
         }
         return c;
+    }
+
+    /*
+     * Method to calculate the synergy of the team
+     * The synergy represents bonus points given to the team during the game
+     * TODO : Determine how
+     * Up to 10 points given
+     * Marks/10
+     */
+    public int Synergy()
+    {
+        int syn = 0;
+        return syn;
     }
 }

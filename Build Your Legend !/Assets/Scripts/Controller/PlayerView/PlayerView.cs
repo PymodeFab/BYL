@@ -41,10 +41,6 @@ public class PlayerView : MonoBehaviour
     public Image fill_obj;
     public Slider slid_obj;
 
-    public Text _self;
-    public Image fill_self;
-    public Slider slid_self;
-
     public Text _exp;
     public Image fill_exp;
     public Slider slid_exp;
@@ -124,7 +120,6 @@ public class PlayerView : MonoBehaviour
         _farm.text = i.BaseFarming.ToString();
         _pos.text = i.BasePositioning.ToString();
         _cons.text = i.Consistency.ToString();
-        _self.text = i.BaseSelfishness.ToString();
         _exp.text = i.BaseExperience.ToString();
 
         slid_agre.value = i.BaseAgression;
@@ -135,7 +130,6 @@ public class PlayerView : MonoBehaviour
         slid_com.value = i.BaseCommunication;
         slid_farm.value = i.BaseFarming;
         slid_pos.value = i.BasePositioning;
-        slid_self.value = i.BaseSelfishness;
         slid_exp.value = i.BaseExperience;
 
         fill_agre.color = grad.Evaluate(slid_agre.normalizedValue);
@@ -145,7 +139,6 @@ public class PlayerView : MonoBehaviour
         fill_com.color = grad.Evaluate(slid_com.normalizedValue);
         fill_farm.color = grad.Evaluate(slid_farm.normalizedValue);
         fill_pos.color = grad.Evaluate(slid_pos.normalizedValue);
-        fill_self.color = grad.Evaluate(slid_self.normalizedValue);
         fill_exp.color = grad.Evaluate(slid_exp.normalizedValue);
         fill_cons.color = grad.Evaluate(slid_cons.normalizedValue);
     }

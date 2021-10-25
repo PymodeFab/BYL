@@ -1,4 +1,4 @@
 ﻿public enum PlayerStyle
 {
-    Agressive,Passive
+    Agressive,Passive,Balanced
 }

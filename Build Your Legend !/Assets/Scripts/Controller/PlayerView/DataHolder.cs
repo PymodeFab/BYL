@@ -24,8 +24,6 @@ public class DataHolder : MonoBehaviour
             {
                 if(p != null)
                 {
-
-                    p.RefreshBirthday();
                     p.Initialize();
                 }
             }

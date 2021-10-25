@@ -61,7 +61,7 @@ public abstract class Individual : ScriptableObject
 
     /*Really important method to call when using an edited player
      */
-    public void RefreshBirthday()
+    public virtual void Initialize()
     {
             string[] subs = Regex.Split(_birthdayDate, @"/");
             _birthday = new DateTime(Int32.Parse(subs[2]),Int32.Parse(subs[1]),Int32.Parse(subs[0]));

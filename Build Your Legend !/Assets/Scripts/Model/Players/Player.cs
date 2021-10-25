@@ -17,6 +17,8 @@ public class Player : Individual
 
     [SerializeField] private PlayerStyle _playStyle;
 
+    private Modifiers _mods;
+
     [SerializeField] private int _agression;
 
     [SerializeField] private int _outplay;
@@ -24,8 +26,6 @@ public class Player : Individual
     [SerializeField] private int _vision;
 
     [SerializeField] private int _objective_control;
-
-    [SerializeField] private int _selfishness;
 
     [SerializeField] private int _experience;
 
@@ -49,8 +49,6 @@ public class Player : Individual
 
     public int BaseObjectiveControl { get => _objective_control; }
 
-    public int BaseSelfishness { get => _selfishness; }
-
     public int BaseExperience { get => _experience; }
 
     public int BaseCommunication { get => _comm; }
@@ -69,10 +67,10 @@ public class Player : Individual
 
     private int potential;
 
-    public Player(string name,string ign, DateTime bd, int salary,int monetary,Sprite sp,Nationality n,PlayerStyle ps, Status s,PlayerRole p,int _agression,int _outplay,int _vision,int objective,int self,
+    public Player(string name,string ign, DateTime bd, int salary,int monetary,Sprite sp,Nationality n,PlayerStyle ps, Status s,PlayerRole p,int _agression,int _outplay,int _vision,int objective,
         int exp,int _comm,int farm,int pos,int cons) : base(name,ign,bd,salary,monetary,n,sp,p)
     {
-        if(!s.Equals(null) && !ps.Equals(null) && ProveCara(_agression) && ProveCara(_outplay) && ProveCara(_vision) && ProveCara(objective) && ProveCara(self) 
+        if(!s.Equals(null) && !ps.Equals(null) && ProveCara(_agression) && ProveCara(_outplay) && ProveCara(_vision) && ProveCara(objective)
              && ProveCara(exp) && ProveCara(_comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(PlayerRole.Coach))
         {
             this.s = s;
@@ -80,7 +78,6 @@ public class Player : Individual
             this._outplay = _outplay;
             this._vision = _vision;
             this._objective_control = objective;
-            this._selfishness = self;
             this._experience = exp;
             this._comm = _comm;
             this._farming = farm;
@@ -88,8 +85,8 @@ public class Player : Individual
             this._consistency = cons;
             _playStyle = ps;
             _roll = DiceRoll.NONE;
-            _rnd = new System.Random();
-            SetPotential();
+            Initialize();
+            
 
         }
         else
@@ -155,41 +152,22 @@ public class Player : Individual
     /*Method to refresh the potential of a player
      * Really important for the edited players
      */
-    public void Initialize()
+    public override void Initialize()
     {
+
+        base.Initialize();
+        _mods = new Modifiers(role);
         _rnd = new System.Random();
         SetPotential();
     }
    
  public int GetBaseScore()
     {
-        int results = 0;
-        switch (Role)
-        {
-            case PlayerRole.TopLaner:
-                results = (int)(3*_agression+3*_outplay+1*_vision+1*_objective_control+3*(100-_selfishness)+2*_experience+2*_comm+2*_farming+1*_positioning+ 3 *_consistency) / 21;
-                break;
-            case PlayerRole.Jungler:
-                results = (int)(2 * _agression + 2 * _outplay + 3 * _vision + 3 * _objective_control + 2 * BetterSelfish() + 1*_experience + 3 * _comm + 1*_farming + 1*_positioning+ 3 *_consistency) / 21;
-                break;
-            case PlayerRole.MidLaner:
-                results = (int)(3 * _agression + 3 * _outplay + 2 * _vision + 1*_objective_control + 2 * BetterSelfish() + 2 * _experience + 1*_comm + 2 * _farming + 2 * _positioning + 3 *_consistency) / 21;
-                break;
-            case PlayerRole.BotLaner:
-                results = (int)(1*_agression + 3 * _outplay + 1*_vision + 1*_objective_control + 3 * _selfishness + 2 * _experience + 1*_comm + 3 * _farming + 3 *_positioning + 3 *_consistency) / 21;
-                break;
-            case PlayerRole.Support:
-                results = (int)(2 * _agression + 2 * _outplay + 4 * _vision + 2* _objective_control  + 3*(100-_selfishness) + 1*_experience + 3 * _comm + 0 * _farming + 1*_positioning+ 3 *_consistency) / 21;
-                break;
-
-        }
-        return results;
+        int sum = (int)((_mods.Mods[0] * _agression) + (_mods.Mods[1] * _outplay) + (_mods.Mods[2] * _vision) + (_mods.Mods[3] * _objective_control) + (_mods.Mods[4] * _experience) + (_mods.Mods[5] * _comm)
+            + (_mods.Mods[6] * _farming) + (_mods.Mods[7] * _positioning) + (_mods.Mods[8] * _consistency));
+        int total = (int)_mods.Total();
+        return sum / total;
     }
-
-
-
-    private int BetterSelfish() => _selfishness > 100-_selfishness ? _selfishness : 100 -_selfishness;
-
     /* Method to access the current Score of a player based on his score and his mood
      * 
      */
@@ -274,36 +252,42 @@ public class Player : Individual
      */
     public int GetCurrentAgression()
     {
-        return (int)(_agression + CoeffConsist());
-    }
-    public int GetCurrentVision()
-    {
-        return (int)(_vision + CoeffConsist());
+        return ((int)(_mods.Mods[0]*_agression)) + CoeffConsist();
     }
     public int GetCurrentOutplay()
     {
-        return (int)(_outplay + CoeffConsist());
+        return ((int)(_mods.Mods[1] * _outplay)) + CoeffConsist();
     }
-    public int GetCurrentSelfishness()
+    public int GetCurrentVision()
     {
-        return (int)(_selfishness + CoeffConsist());
+        return ((int)(_mods.Mods[2] * _vision)) + CoeffConsist();
     }
     public int GetCurrentObjectiveControl()
     {
-        return (int)(_objective_control + CoeffConsist());
-    }
-    public int GetCurrentFarming()
-    {
-        return (int)(_farming + CoeffConsist());
-    }
-    public int GetCurrentPositioning()
-    {
-        return (int)(_positioning + CoeffConsist());
+        return ((int)(_mods.Mods[3] * _objective_control)) + CoeffConsist();
     }
     public int GetCurrentExperience()
     {
-        return (int)(_experience + CoeffConsist());
+        return ((int)(_mods.Mods[4] * _experience)) + CoeffConsist();
     }
+
+    public int GetCurrentComm()
+    {
+        return ((int)(_mods.Mods[5] * _comm)) + CoeffConsist();
+    }
+    public int GetCurrentFarming()
+    {
+        return ((int)(_mods.Mods[6] * _farming)) + CoeffConsist();
+    }
+    public int GetCurrentPositioning()
+    {
+        return ((int)(_mods.Mods[7] * _positioning)) + CoeffConsist();
+    }
+    public int GetCurrentConsist()
+    {
+        return ((int)(_mods.Mods[8] * _consistency)) + CoeffConsist();
+    }
+
     public void TrainAgression(int mod)
     {
         if(mod > 0)
@@ -437,23 +421,6 @@ public class Player : Individual
             if (_comm - mod >= potential)
             {
                 _comm -= mod;
-            }
-        }
-    }
-    public void TrainSelfishness(int mod)
-    {
-        if (mod > 0)
-        {
-            if (mod + _selfishness <= potential)
-            {
-                _selfishness += mod;
-            }
-        }
-        else
-        {
-            if (_selfishness - mod >= potential)
-            {
-                _selfishness -= mod;
             }
         }
     }
