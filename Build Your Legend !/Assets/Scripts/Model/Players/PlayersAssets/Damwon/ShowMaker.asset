@@ -15,12 +15,13 @@ MonoBehaviour:
   _name: Heo Su
   _sprite: {fileID: 21300000, guid: 2bf939ff74153b4408c13b17df1bfc5f, type: 3}
   _inGameName: ShowMaker
-  _salary: 1500000
+  _salary: 800000
   _monetaryValue: 10000000
   _nat: 2
   role: 2
   _birthdayDate: 22/07/2020
   s: 5
+  workEthic: 2
   _playStyle: 0
   _agression: 93
   _outplay: 98

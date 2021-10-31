@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
+  m_Name: Beryl
+  m_EditorClassIdentifier: 
+  _name: Cho Geon-hee
+  _sprite: {fileID: 21300000, guid: 958ef58163c3c564591a9ef2eb5275c2, type: 3}
+  _inGameName: Beryl
+  _salary: 200000
+  _monetaryValue: 3000000
+  _nat: 2
+  role: 4
+  _birthdayDate: 01/04/1997
+  s: 4
+  workEthic: 1
+  _playStyle: 2
+  _agression: 80
+  _outplay: 91
+  _vision: 93
+  _objective_control: 94
+  _experience: 85
+  _comm: 92
+  _farming: 65
+  _positioning: 87
+  _consistency: 85

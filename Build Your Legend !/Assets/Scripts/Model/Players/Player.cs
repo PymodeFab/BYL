@@ -15,6 +15,8 @@ public class Player : Individual
 
     public Status s;
 
+    public PlayerWorkEthic workEthic;
+
     [SerializeField] private PlayerStyle _playStyle;
 
     private Modifiers _mods;
@@ -67,7 +69,7 @@ public class Player : Individual
 
     private int potential;
 
-    public Player(string name,string ign, DateTime bd, int salary,int monetary,Sprite sp,Nationality n,PlayerStyle ps, Status s,PlayerRole p,int _agression,int _outplay,int _vision,int objective,
+    public Player(string name,string ign, DateTime bd, int salary,int monetary,Sprite sp,Nationality n,PlayerStyle ps, Status s, PlayerWorkEthic workEthic, PlayerRole p,int _agression,int _outplay,int _vision,int objective,
         int exp,int _comm,int farm,int pos,int cons) : base(name,ign,bd,salary,monetary,n,sp,p)
     {
         if(!s.Equals(null) && !ps.Equals(null) && ProveCara(_agression) && ProveCara(_outplay) && ProveCara(_vision) && ProveCara(objective)
