@@ -22,13 +22,12 @@ MonoBehaviour:
   _birthdayDate: 30/03/2000
   s: 3
   _playStyle: 1
-  _agression: 68
-  _outplay: 83
-  _vision: 70
-  _objective_control: 68
-  _selfishness: 90
-  _experience: 73
-  _comm: 70
-  _farming: 92
-  _positioning: 88
-  _consistency: 80
+  _agression: 74
+  _outplay: 84
+  _vision: 78
+  _objective_control: 80
+  _experience: 76
+  _comm: 77
+  _farming: 93
+  _positioning: 89
+  _consistency: 85

@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: Caps
+  m_Name: ShowMaker
   m_EditorClassIdentifier: 
-  _name: Rasmus Winther
-  _sprite: {fileID: 21300000, guid: 4a6276b01e3c83d48a10f27936b7acff, type: 3}
-  _inGameName: Caps
+  _name: Heo Su
+  _sprite: {fileID: 21300000, guid: 2bf939ff74153b4408c13b17df1bfc5f, type: 3}
+  _inGameName: ShowMaker
   _salary: 1500000
-  _monetaryValue: 8000000
-  _nat: 10
+  _monetaryValue: 10000000
+  _nat: 2
   role: 2
-  _birthdayDate: 17/11/1999
+  _birthdayDate: 22/07/2020
   s: 5
   _playStyle: 0
-  _agression: 95
-  _outplay: 96
-  _vision: 88
-  _objective_control: 82
-  _experience: 86
-  _comm: 83
-  _farming: 90
+  _agression: 93
+  _outplay: 98
+  _vision: 93
+  _objective_control: 89
+  _experience: 90
+  _comm: 90
+  _farming: 95
   _positioning: 94
-  _consistency: 81
+  _consistency: 95
