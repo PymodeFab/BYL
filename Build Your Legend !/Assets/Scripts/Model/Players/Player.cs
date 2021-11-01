@@ -15,7 +15,7 @@ public class Player : Individual
 
     public Status s;
 
-    public PlayerWorkEthic workEthic;
+    [SerializeField] private PlayerWorkEthic _workEthic;
 
     [SerializeField] private PlayerStyle _playStyle;
 
@@ -62,6 +62,7 @@ public class Player : Individual
     public int Consistency { get => _consistency; }
 
     public PlayerStyle PlayStyle { get => _playStyle; set => _playStyle = value; }
+    public PlayerWorkEthic WorkEthic { get => _workEthic; set => _workEthic = value; }
 
     private DiceRoll _roll;
 
@@ -72,7 +73,7 @@ public class Player : Individual
     public Player(string name,string ign, DateTime bd, int salary,int monetary,Sprite sp,Nationality n,PlayerStyle ps, Status s, PlayerWorkEthic workEthic, PlayerRole p,int _agression,int _outplay,int _vision,int objective,
         int exp,int _comm,int farm,int pos,int cons) : base(name,ign,bd,salary,monetary,n,sp,p)
     {
-        if(!s.Equals(null) && !ps.Equals(null) && ProveCara(_agression) && ProveCara(_outplay) && ProveCara(_vision) && ProveCara(objective)
+        if(!s.Equals(null) && !ps.Equals(null) && !workEthic.Equals(null) && ProveCara(_agression) && ProveCara(_outplay) && ProveCara(_vision) && ProveCara(objective)
              && ProveCara(exp) && ProveCara(_comm) && ProveCara(farm) && ProveCara(pos) && ProveCara(cons) && !p.Equals(PlayerRole.Coach))
         {
             this.s = s;
@@ -85,6 +86,7 @@ public class Player : Individual
             this._farming = farm;
             this._positioning = pos;
             this._consistency = cons;
+            this._workEthic = workEthic;
             _playStyle = ps;
             _roll = DiceRoll.NONE;
             Initialize();
@@ -163,7 +165,7 @@ public class Player : Individual
         SetPotential();
     }
    
- public int GetBaseScore()
+     public int GetBaseScore()
     {
         int sum = (int)((_mods.Mods[0] * _agression) + (_mods.Mods[1] * _outplay) + (_mods.Mods[2] * _vision) + (_mods.Mods[3] * _objective_control) + (_mods.Mods[4] * _experience) + (_mods.Mods[5] * _comm)
             + (_mods.Mods[6] * _farming) + (_mods.Mods[7] * _positioning) + (_mods.Mods[8] * _consistency));
@@ -229,9 +231,13 @@ public class Player : Individual
             {
                 result = _rnd.Next(5, 10);
             }
-            else
+            else if(_playStyle.Equals(PlayerStyle.Passive))
             {
                 result = _rnd.Next(1, 5);
+            }
+            else if(_playStyle.Equals(PlayerStyle.Balanced))
+            {
+                result = _rnd.Next(3, 7);
             }
         }
         else if (_roll.Equals(DiceRoll.FAILURE)||_roll.Equals(DiceRoll.SUCCESS))
@@ -240,9 +246,12 @@ public class Player : Individual
             {
                 result = _rnd.Next(1, 10);
             }
-            else
+            else if(_playStyle.Equals(PlayerStyle.Passive))
             {
                 result = _rnd.Next(1, 5);
+            }else if (_playStyle.Equals(PlayerStyle.Balanced))
+            {
+                result = _rnd.Next(1, 7);
             }
         }
         result = (_roll.Equals(DiceRoll.CRITICAL_FAILURE) || _roll.Equals(DiceRoll.FAILURE)) ? result * -1 : result + 1;
