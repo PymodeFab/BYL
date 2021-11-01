@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282cb4421cc95384694cbe87555ccb06, type: 3}
   m_Name: Kkoma
   m_EditorClassIdentifier: 
-  _name: 
-  _sprite: {fileID: 0}
-  _inGameName: 
-  _salary: 0
-  _monetaryValue: 0
-  _nat: 0
-  role: 0
-  _birthdayDate: 
+  _name: Kim Jeong-gyun
+  _sprite: {fileID: 21300000, guid: 41949309df814664682538f382eba476, type: 3}
+  _inGameName: Kkoma
+  _salary: 200000
+  _monetaryValue: 1500000
+  _nat: 2
+  role: 5
+  _birthdayDate: 23/12/1985

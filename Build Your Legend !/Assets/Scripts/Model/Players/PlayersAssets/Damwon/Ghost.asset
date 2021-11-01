@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
   m_Name: Ghost
   m_EditorClassIdentifier: 
-  _name: 
-  _sprite: {fileID: 0}
-  _inGameName: 
-  _salary: 0
-  _monetaryValue: 0
-  _nat: 0
-  role: 0
-  _birthdayDate: 
-  s: 0
-  workEthic: 0
-  _playStyle: 0
-  _agression: 0
-  _outplay: 0
-  _vision: 0
-  _objective_control: 0
-  _experience: 0
-  _comm: 0
-  _farming: 0
-  _positioning: 0
-  _consistency: 0
+  _name: Jang Yong-jun
+  _sprite: {fileID: 21300000, guid: 5c53c11d5d1284b4ba5479619feb5907, type: 3}
+  _inGameName: Ghost
+  _salary: 350000
+  _monetaryValue: 3000000
+  _nat: 2
+  role: 3
+  _birthdayDate: 18/03/1999
+  s: 3
+  workEthic: 1
+  _playStyle: 1
+  _agression: 80
+  _outplay: 88
+  _vision: 82
+  _objective_control: 81
+  _experience: 83
+  _comm: 80
+  _farming: 90
+  _positioning: 95
+  _consistency: 90
