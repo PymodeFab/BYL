@@ -18,8 +18,9 @@ public abstract class Event : ScriptableObject
 
     [SerializeField] private GameStage _gamestage;
 
-    [SerializeField] private bool _succeeded;
+    private bool _succeeded;
 
+    // Getters
     public string Name { get => _name; }
     public int Points { get => _points;  }
     public string Description { get => _description; }
@@ -41,11 +42,14 @@ public abstract class Event : ScriptableObject
             throw new System.ArgumentException();
         }
     }
+
+    //Reset the event after a game has ended, must be called
     public void Reset()
     {
         _succeeded = false;
     }
 
+    //The event is run but it does his own thing by asking his children to do it instead
     public virtual void DoEvent(Team teamUser, Team teamTarget)
     {
         this.DoEvent(teamUser, teamTarget);
