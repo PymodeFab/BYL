@@ -20,14 +20,15 @@ public class Team : ScriptableObject
 
     [SerializeField] private int _salaryFunds;
 
-    [SerializeField]private List<Individual> recruits;
+    [SerializeField]  private List<Individual> recruits;
 
-    private List<Individual> activeTeam;
+    private List<Player> _activeTeam;
 
     public string Name { get => _name; set => _name = value; }
     public Nationality Nat { get => _nat; set => _nat = value; }
     public int Funds { get => _funds; set => _funds = value; }
     public int SalaryFunds { get => _salaryFunds; set => _salaryFunds = value; }
+    public List<Player> ActiveTeam { get => new List<Player>(_activeTeam);}
 
     public Team(string name,Nationality nat, int funds, int salaryFunds)
     {
@@ -38,7 +39,7 @@ public class Team : ScriptableObject
             this._funds = funds;
             this._salaryFunds = salaryFunds;
             recruits = new List<Individual>();
-            activeTeam = new List<Individual>();
+            _activeTeam = new List<Player>();
         }
         else
         {
@@ -97,6 +98,41 @@ public class Team : ScriptableObject
             }
         }
         return c;
+    }
+
+    public void SetPlayerMainTeam(Player p)
+    {
+        if (recruits.Contains(p))
+        {
+            if(!_activeTeam.Find(x => x.Role == p.Role).Equals(null))
+            {
+                _activeTeam.Remove(_activeTeam.Find(x => x.Role == p.Role));
+            }
+            if(_activeTeam.Count < 5)
+            {
+                _activeTeam.Add(p);
+            }
+        }
+    }
+
+    public Player GetPlayerByRole(PlayerRole p)
+    {
+        return _activeTeam.Find(x => x.Role == p);
+    }
+
+    public List<Player> GetPlayersByRoles(List<PlayerRole> roles)
+    {
+        List<Player> players = new List<Player>();
+        Player tmp;
+        foreach(PlayerRole pr in roles)
+        {
+            tmp = players.Find(x => x.Role == pr);
+            if (!tmp.Equals(null))
+            {
+                players.Add(tmp);
+            }
+        }
+        return players;
     }
 
     /*

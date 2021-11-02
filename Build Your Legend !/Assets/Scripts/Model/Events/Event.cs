@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,24 +19,28 @@ public abstract class Event : ScriptableObject
 
     [SerializeField] private GameStage _gamestage;
 
-    private bool _succeeded;
+    [SerializeField] private List<PlayerRole> _targetsRoles;
+
+    private EventState _state;
 
     // Getters
     public string Name { get => _name; }
     public int Points { get => _points;  }
     public string Description { get => _description; }
     public GameStage Gamestage { get => _gamestage; }
-    public bool Succeeded { get => _succeeded; }
+    public EventState State { get => _state; }
+    public List<PlayerRole> TargetsRoles { get => new List<PlayerRole>(_targetsRoles);}
 
-    public Event(string name, int points,string description, GameStage gs)
+    public Event(string name, int points,string description, GameStage gs, List<PlayerRole> roles)
     {
-        if (!name.Equals(default) && points > 0 && points < 75 && !description.Equals(default) && !gs.Equals(null))
+        if (!name.Equals(default) && !roles.Equals(default) && points > 0 && points < 75 && !description.Equals(default) && !gs.Equals(null))
         {
             this._name = name;
             this._description = description;
             this._points = points;
             this._gamestage = gs;
-            _succeeded = false;
+            this._targetsRoles = new List<PlayerRole>(roles);
+            Initialize();
         }
         else
         {
@@ -43,15 +48,17 @@ public abstract class Event : ScriptableObject
         }
     }
 
-    //Reset the event after a game has ended, must be called
-    public void Reset()
+    //Reset the event
+    public void Initialize()
     {
-        _succeeded = false;
+        _state = EventState.READY;
     }
 
-    //The event is run but it does his own thing by asking his children to do it instead
-    public virtual void DoEvent(Team teamUser, Team teamTarget)
+    //The event is run but it does his own thing by asking his children to do it instead. Change the state of the event
+    public void DoEvent(Team user, Team target,List<Event> pool)
     {
-        this.DoEvent(teamUser, teamTarget);
+        _state = this.RollEvent(user,target,pool) ? EventState.SUCCEEDED : EventState.FAILED;
     }
+
+    protected abstract bool RollEvent(Team user, Team target, List<Event> pool);
 }
