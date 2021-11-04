@@ -15,7 +15,7 @@ public abstract class Event : ScriptableObject
 
     [SerializeField] private int _points;
 
-    [SerializeField] private string _description;
+    [SerializeField] [TextArea] private string _description;
 
     [SerializeField] private GameStage _gamestage;
 
@@ -55,10 +55,10 @@ public abstract class Event : ScriptableObject
     }
 
     //The event is run but it does his own thing by asking his children to do it instead. Change the state of the event
-    public void DoEvent(Team user, Team target,List<Event> pool)
+    public void DoEvent(Team user, Team target)
     {
-        _state = this.RollEvent(user,target,pool) ? EventState.SUCCEEDED : EventState.FAILED;
+        _state = this.RollEvent(user,target) ? EventState.SUCCEEDED : EventState.FAILED;
     }
 
-    protected abstract bool RollEvent(Team user, Team target, List<Event> pool);
+    protected abstract bool RollEvent(Team user, Team target);
 }
