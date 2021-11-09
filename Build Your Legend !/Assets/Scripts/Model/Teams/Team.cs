@@ -24,11 +24,14 @@ public class Team : ScriptableObject
 
     private List<Player> _activeTeam;
 
+    private List<Event> _eventsChosen;
+
     public string Name { get => _name; set => _name = value; }
     public Nationality Nat { get => _nat; set => _nat = value; }
     public int Funds { get => _funds; set => _funds = value; }
     public int SalaryFunds { get => _salaryFunds; set => _salaryFunds = value; }
     public List<Player> ActiveTeam { get => new List<Player>(_activeTeam);}
+    public List<Event> EventsChosen { get => new List<Event>(_eventsChosen); set => _eventsChosen = value; }
 
     public Team(string name,Nationality nat, int funds, int salaryFunds)
     {
@@ -40,10 +43,20 @@ public class Team : ScriptableObject
             this._salaryFunds = salaryFunds;
             recruits = new List<Individual>();
             _activeTeam = new List<Player>();
+            Initialize();
         }
         else
         {
             throw new System.ArgumentException("Illegal Arguments");
+        }
+    }
+
+    public void Initialize()
+    {
+        _eventsChosen = new List<Event>();
+        foreach(Player p in GetPlayers())
+        {
+            p.Initialize();
         }
     }
 

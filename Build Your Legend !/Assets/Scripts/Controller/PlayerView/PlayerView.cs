@@ -76,14 +76,14 @@ public class PlayerView : MonoBehaviour
 
     public void LookAtRandomPlayer()
     {
-        i = DataHolder.GetRandomPlayer();
+        i = DataHolder.GetRandomFreeAgent();
         UpdateGraphics();
 
     }
 
     public void ViewSelectPlayer()
     {
-        i = DataHolder.GetPlayerByIGN(playerSearch.text);
+        i = DataHolder.GetPlayerByName(playerSearch.text);
         if(i != null)
         {
             UpdateGraphics();

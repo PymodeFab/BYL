@@ -21,14 +21,11 @@ public abstract class Event : ScriptableObject
 
     [SerializeField] private List<PlayerRole> _targetsRoles;
 
-    private EventState _state;
-
     // Getters
     public string Name { get => _name; }
     public int Points { get => _points;  }
     public string Description { get => _description; }
     public GameStage Gamestage { get => _gamestage; }
-    public EventState State { get => _state; }
     public List<PlayerRole> TargetsRoles { get => new List<PlayerRole>(_targetsRoles);}
 
     public Event(string name, int points,string description, GameStage gs, List<PlayerRole> roles)
@@ -40,24 +37,16 @@ public abstract class Event : ScriptableObject
             this._points = points;
             this._gamestage = gs;
             this._targetsRoles = new List<PlayerRole>(roles);
-            Initialize();
         }
         else
         {
             throw new System.ArgumentException();
         }
     }
-
-    //Reset the event
-    public void Initialize()
-    {
-        _state = EventState.READY;
-    }
-
     //The event is run but it does his own thing by asking his children to do it instead. Change the state of the event
-    public void DoEvent(Team user, Team target)
+    public Team DoEvent(Team user, Team target)
     {
-        _state = this.RollEvent(user,target) ? EventState.SUCCEEDED : EventState.FAILED;
+        return this.RollEvent(user,target) ? user : target;
     }
 
     protected abstract bool RollEvent(Team user, Team target);

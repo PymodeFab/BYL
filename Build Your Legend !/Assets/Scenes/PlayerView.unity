@@ -3094,9 +3094,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119eef5675baf0d4f9757df5938f9393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: {fileID: 11400000, guid: b4acdd7d5a50c644b9236a995cd25a38, type: 2}
-  flags: {fileID: 11400000, guid: 9eb15fb9fe0dc7841927b520e2b4c4cd, type: 2}
-  roles: {fileID: 11400000, guid: a6b044b3a50a5944289239f9359cef73, type: 2}
+  _players: {fileID: 11400000, guid: b4acdd7d5a50c644b9236a995cd25a38, type: 2}
+  _flags: {fileID: 11400000, guid: 9eb15fb9fe0dc7841927b520e2b4c4cd, type: 2}
+  _roles: {fileID: 11400000, guid: a6b044b3a50a5944289239f9359cef73, type: 2}
+  _events: {fileID: 11400000, guid: 255b19c3b64749f41b61c51f4a143270, type: 2}
 --- !u!4 &790336881
 Transform:
   m_ObjectHideFlags: 0
@@ -4118,9 +4119,6 @@ MonoBehaviour:
   _obj: {fileID: 1157510498}
   fill_obj: {fileID: 1830255095}
   slid_obj: {fileID: 624369584}
-  _self: {fileID: 0}
-  fill_self: {fileID: 0}
-  slid_self: {fileID: 0}
   _exp: {fileID: 1928189804}
   fill_exp: {fileID: 1595749424}
   slid_exp: {fileID: 634865562}
