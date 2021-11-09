@@ -56,7 +56,11 @@ public class DataHolder : MonoBehaviour
     public static Player GetRandomFreeAgent()
     {
         Player p = instance._freeAgents.data[Random.Range(0, instance._freeAgents.data.Count)];
-        instance.playersDico.Add(p.IGN, p);
+        if (!instance.playersDico.ContainsKey(p.IGN))
+        {
+
+            instance.playersDico.Add(p.IGN, p);
+        }
         return p;
     }
 
@@ -70,7 +74,7 @@ public class DataHolder : MonoBehaviour
         {
 
             Player p = instance._freeAgents.data.Find(x => x.IGN == IGN);
-            if (!p.Equals(null))
+            if (p != null && !instance.playersDico.ContainsKey(IGN))
             {
 
                 instance.playersDico.Add(p.IGN, p);
@@ -88,37 +92,34 @@ public class DataHolder : MonoBehaviour
             return instance.playersDico[IGN];
         }
         p = GetFreeAgentByIGN(IGN);
-        if (!p.Equals(null))
+        if (p != null)
         {
             return p;
         }
-        
-        foreach(Region r in instance._regions.data)
+
+        foreach (MajorRegion r in instance._regions.data)
         {
-            if(r is MajorRegion)
+            foreach (MinorRegion mr in ((MajorRegion)r).Minors)
             {
-                foreach(MinorRegion mr in ((MajorRegion)r).Minors)
+                foreach (Competition c in r.Competitions)
                 {
-                    foreach (Competition c in r.Competitions)
+                    foreach (Team t in c.Teams)
                     {
-                        foreach (Team t in c.Teams)
+                        p = t.GetPlayers().Find(x => x.IGN == IGN);
+                        if (p != null && !instance.playersDico.ContainsKey(IGN))
                         {
-                            p = t.GetPlayers().Find(x => x.IGN == IGN);
-                            if (!p.Equals(null))
-                            {
-                                instance.playersDico.Add(p.IGN, p);
-                                return p;
-                            }
+                            instance.playersDico.Add(p.IGN, p);
+                            return p;
                         }
                     }
                 }
             }
-            foreach(Competition c in r.Competitions)
+            foreach (Competition c in r.Competitions)
             {
-                foreach(Team t in c.Teams)
+                foreach (Team t in c.Teams)
                 {
                     p = t.GetPlayers().Find(x => x.IGN == IGN);
-                    if (!p.Equals(null))
+                    if (p != null && !instance.playersDico.ContainsKey(IGN))
                     {
                         instance.playersDico.Add(p.IGN, p);
                         return p;
@@ -166,7 +167,7 @@ public class DataHolder : MonoBehaviour
             return instance.regionsDico[name];
         }
         r = instance._regions.data.Find(x => x.name == name);
-        if (!r.Equals(null))
+        if (!r.Equals(null) && !instance.regionsDico.ContainsKey(name))
         {
             instance.regionsDico.Add(name, r);
         }
@@ -188,7 +189,7 @@ public class DataHolder : MonoBehaviour
                 foreach (Competition c in m.Competitions)
                 {
                     t = c.Teams.Find(x => x.Name == name);
-                    if (!t.Equals(null))
+                    if (!t.Equals(null) && !instance.teamsDico.ContainsKey(name))
                     {
                         instance.teamsDico.Add(name, t);
                         return t;
@@ -198,7 +199,7 @@ public class DataHolder : MonoBehaviour
             foreach(Competition c in mi.Competitions)
             {
                 t = c.Teams.Find(x => x.Name == name);
-                if (!t.Equals(null))
+                if (!t.Equals(null) && !instance.teamsDico.ContainsKey(name))
                 {
                     instance.teamsDico.Add(name, t);
                     return t;
@@ -218,7 +219,7 @@ public class DataHolder : MonoBehaviour
         foreach(MajorRegion mr in instance._regions.data)
         {
             c = mr.Competitions.Find(x => x.Name == name);
-            if (!c.Equals(null))
+            if (!c.Equals(null) && !instance.compDico.ContainsKey(name))
             {
                 instance.compDico.Add(name, c);
                 return c;
@@ -226,7 +227,7 @@ public class DataHolder : MonoBehaviour
             foreach(MinorRegion mi in mr.Minors)
             {
                 c = mi.Competitions.Find(x => x.Name == name);
-                if (!c.Equals(null))
+                if (!c.Equals(null) && !instance.compDico.ContainsKey(name))
                 {
                     instance.compDico.Add(name, c);
                     return c;

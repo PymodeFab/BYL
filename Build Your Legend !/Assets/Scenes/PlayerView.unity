@@ -3094,10 +3094,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119eef5675baf0d4f9757df5938f9393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _players: {fileID: 11400000, guid: b4acdd7d5a50c644b9236a995cd25a38, type: 2}
   _flags: {fileID: 11400000, guid: 9eb15fb9fe0dc7841927b520e2b4c4cd, type: 2}
   _roles: {fileID: 11400000, guid: a6b044b3a50a5944289239f9359cef73, type: 2}
   _events: {fileID: 11400000, guid: 255b19c3b64749f41b61c51f4a143270, type: 2}
+  _regions: {fileID: 11400000, guid: 4d6ba7933d5148d4298d54602745f996, type: 2}
+  _freeAgents: {fileID: 11400000, guid: b4acdd7d5a50c644b9236a995cd25a38, type: 2}
 --- !u!4 &790336881
 Transform:
   m_ObjectHideFlags: 0
