@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: Inspired
+  m_Name: Malrang
   m_EditorClassIdentifier: 
-  _name: Kacper Sloma
+  _name: Kim Geun-seong
   _sprite: {fileID: 21300000, guid: fd202b06ada16cc42a0b3e8a6cff60b4, type: 3}
-  _inGameName: Inspired
-  _salary: 500000
-  _monetaryValue: 1300000
-  _nat: 21
+  _inGameName: Malrang
+  _salary: 220000
+  _monetaryValue: 300000
+  _nat: 2
   role: 1
-  _birthdayDate: 24/01/1999
-  s: 1
-  _playStyle: 0
-  _agression: 85
-  _outplay: 89
+  _birthdayDate: 09/02/2000
+  s: 3
+  _workEthic: 1
+  _playStyle: 2
+  _agression: 81
+  _outplay: 81
   _vision: 83
   _objective_control: 85
-  _experience: 70
+  _experience: 77
   _comm: 82
-  _farming: 88
-  _positioning: 84
-  _consistency: 88
+  _farming: 84
+  _positioning: 82
+  _consistency: 80

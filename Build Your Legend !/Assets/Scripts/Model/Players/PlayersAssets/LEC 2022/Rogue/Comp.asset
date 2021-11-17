@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: Hans Sama
+  m_Name: Comp
   m_EditorClassIdentifier: 
-  _name: Steven Liv
+  _name: Markos Stamkopoulos
   _sprite: {fileID: 21300000, guid: 25245bdd7faa31b439933ea5551f3dfc, type: 3}
-  _inGameName: Hans Sama
-  _salary: 450000
-  _monetaryValue: 1400000
-  _nat: 0
+  _inGameName: Comp
+  _salary: 150000
+  _monetaryValue: 200000
+  _nat: 12
   role: 3
-  _birthdayDate: 02/09/1999
-  s: 4
+  _birthdayDate: 20/12/2001
+  s: 2
+  _workEthic: 1
   _playStyle: 0
-  _agression: 89
-  _outplay: 92
-  _vision: 70
+  _agression: 86
+  _outplay: 87
+  _vision: 69
   _objective_control: 72
-  _experience: 80
-  _comm: 76
-  _farming: 90
-  _positioning: 90
-  _consistency: 86
+  _experience: 71
+  _comm: 73
+  _farming: 88
+  _positioning: 83
+  _consistency: 79
