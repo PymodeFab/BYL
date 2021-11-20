@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: Comp
+  m_Name: Patrik
   m_EditorClassIdentifier: 
-  _name: Markos Stamkopoulos
-  _sprite: {fileID: 21300000, guid: 25245bdd7faa31b439933ea5551f3dfc, type: 3}
-  _inGameName: Comp
-  _salary: 150000
-  _monetaryValue: 200000
-  _nat: 12
+  _name: Patrik Jiru
+  _sprite: {fileID: 0}
+  _inGameName: Patrik
+  _salary: 250000
+  _monetaryValue: 400000
+  _nat: 23
   role: 3
-  _birthdayDate: 20/12/2001
-  s: 2
+  _birthdayDate: 07/04/2000
+  s: 3
   _workEthic: 1
   _playStyle: 0
-  _agression: 86
-  _outplay: 87
-  _vision: 69
-  _objective_control: 72
-  _experience: 71
-  _comm: 73
-  _farming: 88
-  _positioning: 83
-  _consistency: 79
+  _agression: 87
+  _outplay: 86
+  _vision: 78
+  _objective_control: 76
+  _experience: 76
+  _comm: 77
+  _farming: 86
+  _positioning: 87
+  _consistency: 84
