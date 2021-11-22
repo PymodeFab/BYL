@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jezu
   m_EditorClassIdentifier: 
   _name: Jean Massol
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 59761adddbb5e864181b3bb4112ee1c2, type: 3}
   _inGameName: Jezu
   _salary: 150000
   _monetaryValue: 250000

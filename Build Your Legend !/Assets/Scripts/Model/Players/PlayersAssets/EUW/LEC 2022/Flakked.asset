@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flakked
   m_EditorClassIdentifier: 
   _name: Victor Lirola
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: de9aaebce061a0b449864d88a9c61d2b, type: 3}
   _inGameName: Flakked
   _salary: 100000
   _monetaryValue: 200000

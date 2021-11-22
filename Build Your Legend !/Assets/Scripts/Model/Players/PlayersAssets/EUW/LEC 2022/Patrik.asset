@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Patrik
   m_EditorClassIdentifier: 
   _name: Patrik Jiru
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: f90efa0a454b28a459264eb2d77fa7a2, type: 3}
   _inGameName: Patrik
   _salary: 250000
   _monetaryValue: 400000

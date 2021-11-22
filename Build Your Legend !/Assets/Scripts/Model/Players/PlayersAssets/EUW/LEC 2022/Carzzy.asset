@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carzzy
   m_EditorClassIdentifier: 
   _name: Matyas Orsag
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: f195a443fd8945f4dbe5bfeeb1c33de4, type: 3}
   _inGameName: Carzzy
   _salary: 300000
   _monetaryValue: 500000

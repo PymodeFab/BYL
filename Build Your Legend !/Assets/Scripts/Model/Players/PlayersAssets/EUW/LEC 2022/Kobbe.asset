@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kobbe
   m_EditorClassIdentifier: 
   _name: Kasper Kobberup
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 2bded1df082e58d4d9905372c454b2dc, type: 3}
   _inGameName: Kobbe
   _salary: 300000
   _monetaryValue: 300000
