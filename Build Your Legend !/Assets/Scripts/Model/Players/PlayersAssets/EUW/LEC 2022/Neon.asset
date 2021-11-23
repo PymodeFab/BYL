@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
-  m_Name: Carzzy
+  m_Name: Neon
   m_EditorClassIdentifier: 
-  _name: Matyas Orsag
-  _sprite: {fileID: 21300000, guid: f195a443fd8945f4dbe5bfeeb1c33de4, type: 3}
-  _inGameName: Carzzy
-  _salary: 300000
-  _monetaryValue: 500000
-  _nat: 23
+  _name: Matus Jakubcik
+  _sprite: {fileID: 21300000, guid: 9038fc128c6a7664b8842a2d3dfd2fc8, type: 3}
+  _inGameName: Neon
+  _salary: 80000
+  _monetaryValue: 100000
+  _nat: 24
   role: 3
-  _birthdayDate: 31/01/2002
-  s: 4
+  _birthdayDate: 24/04/1999
+  s: 3
   _workEthic: 1
-  _playStyle: 0
-  _agression: 84
-  _outplay: 86
-  _vision: 84
-  _objective_control: 80
-  _experience: 78
-  _comm: 84
-  _farming: 82
-  _positioning: 82
-  _consistency: 81
+  _playStyle: 2
+  _agression: 80
+  _outplay: 81
+  _vision: 77
+  _objective_control: 76
+  _experience: 75
+  _comm: 70
+  _farming: 84
+  _positioning: 83
+  _consistency: 82
