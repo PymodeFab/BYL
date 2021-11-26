@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd9b874159d0a043bb13b51ec7f1c1f, type: 3}
   m_Name: Markoon
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Mark van Woensel
   _sprite: {fileID: 0}
-  _inGameName: 
-  _salary: 0
-  _monetaryValue: 0
-  _nat: 0
-  role: 0
-  _birthdayDate: 
-  s: 0
-  _workEthic: 0
-  _playStyle: 0
+  _inGameName: Markoon
+  _salary: 80000
+  _monetaryValue: 150000
+  _nat: 9
+  role: 1
+  _birthdayDate: 28/06/2002
+  s: 2
+  _workEthic: 1
+  _playStyle: 2
   _agression: 0
   _outplay: 0
   _vision: 0
