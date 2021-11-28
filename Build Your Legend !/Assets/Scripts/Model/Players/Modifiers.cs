@@ -26,7 +26,7 @@ internal class Modifiers
                 add = new double[9] { 2, 2, 3, 3, 1, 3, 1, 1, 2};
                 break;
             case PlayerRole.MidLaner:
-                add = new double[9] { 3, 3, 2, 1, 2, 1, 2, 2, 2};
+                add = new double[9] { 3, 3, 2, 1, 2, 2, 2, 2, 2};
                 break;
             case PlayerRole.BotLaner:
                 add = new double[9] { 1, 3, 1, 1, 2, 1, 3, 3, 2};
